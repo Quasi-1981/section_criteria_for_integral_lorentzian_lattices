@@ -14,9 +14,16 @@
 import argparse, os, re, sys
 from pathlib import Path
 
-TOOLS = r"E:\Git\Vacuum-Geometry-v10\active-v10.2\src\tools"
-sys.path.insert(0, TOOLS)
-from md_to_tex import _inline, gate_glyph                      # inline layer + glyph gate
+# The inline layer (glyph map, paragraph assembly, glyph gate) lives in md_to_tex.py.
+# Look for it BESIDE this file first -- that is how the deposit ships, so the package runs
+# from a fresh clone with nothing else present -- and only then fall back to the working
+# tree of the programme.  A hard-coded absolute path here is what would make the shipped
+# package unrunnable for anyone but its author.
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+try:
+    from md_to_tex import _inline, gate_glyph                  # inline layer + glyph gate
+except ImportError:
+    sys.exit("md_to_tex.py not found: it must sit beside this file (it ships in src/).")
 
 PREAMBLE = r"""%% GENERATED from %(src)s -- DO NOT EDIT BY HAND.
 %% Source of truth is the Markdown; regenerate with src/S1765_build_tex.py.

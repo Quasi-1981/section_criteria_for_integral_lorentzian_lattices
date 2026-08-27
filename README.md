@@ -17,7 +17,7 @@ believed**.
 | `section_criteria_ua.md` | the same paper in Ukrainian |
 | `supplementary/S1_genus_enumeration_17_to_7.md` | the 17 putative 2-adic symbol systems and the merge map `17 → 7` — promised in §3.5 |
 | `supplementary/S2_discriminant_form_grams.md` | full discriminant-form Grams of the non-cyclic rows of the cost table — promised in §7.4 |
-| `src/*.py` | the probes behind the computational statements |
+| `src/*.py` | the probes behind the computational statements, plus the typeset builder (`S1765_build_tex.py`) and the inline layer it uses (`md_to_tex.py`) |
 | `src/*_run.log`, `src/*_dump.jsonl` | what each probe printed and dumped when run in this repository |
 | `LICENSE`, `LICENSE-CODE`, `NOTICE` | CC BY 4.0 for the text, Apache 2.0 for the code, and the attribution notice |
 | `citation.yaml`, `CITATION.cff`, `.zenodo.json` | citation metadata; `citation.yaml` is the single source, the other two are **generated** from it |
