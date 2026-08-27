@@ -62,8 +62,15 @@ MATH = {
     "ι": r"\iota ", "′": r"'", "⁶": r"^{6}", "₄": r"_{4}", "₈": r"_{8}",
     "¼": r"\tfrac{1}{4}", "½": r"\tfrac{1}{2}", "¾": r"\tfrac{3}{4}",
     "ȳ": r"\bar{y}", "̄": "",
+    "ℓ": r"\ell ", "₅": r"_{5}", "✓": r"\checkmark ",
+    "δ": r"\delta ", "₆": r"_{6}",
     "📖": r"\mbox{\bookmark{}}",
+    "—": r"\mbox{---}",
 }
+
+# Glyphs that are TEXT, not mathematics: wrapping them in $...$ would be wrong even
+# outside a math span.  Handled by their own branch in _extra below.
+TEXT_ONLY = {"📖": r"\bookmark{}", "—": "---", "̄": ""}
 
 
 def _extra(s):
@@ -81,10 +88,8 @@ def _extra(s):
                 continue
             if inside:
                 parts[idx] = parts[idx].replace(k, v)
-            elif k == "📖":
-                parts[idx] = parts[idx].replace(k, r"\bookmark{}")
-            elif k == "̄":
-                parts[idx] = parts[idx].replace(k, "")
+            elif k in TEXT_ONLY:
+                parts[idx] = parts[idx].replace(k, TEXT_ONLY[k])
             else:
                 parts[idx] = parts[idx].replace(k, "$" + v.strip() + "$")
     return "$".join(parts)
