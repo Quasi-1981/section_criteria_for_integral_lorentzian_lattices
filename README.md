@@ -77,5 +77,9 @@ supports. Every log was produced by running the file as it stands here.
 
 ## Citing
 
-The DOI is assigned on deposit and will be recorded here and in `CITATION.cff` at that point.
+Cite via the **concept DOI**, which always resolves to the latest version:
+**https://doi.org/10.5281/zenodo.22125370**. It is the DOI carried by `CITATION.cff`.
+The per-version DOI of release `v1.0.0` is [10.5281/zenodo.22125371](https://doi.org/10.5281/zenodo.22125371);
+per-version DOIs are listed on the Zenodo record.
+
 The preceding paper of the series is Zenodo [10.5281/zenodo.22068307](https://doi.org/10.5281/zenodo.22068307).
