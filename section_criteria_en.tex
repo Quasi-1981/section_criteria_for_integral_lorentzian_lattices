@@ -1,0 +1,539 @@
+% GENERATED from section_criteria_en.md -- DO NOT EDIT BY HAND.
+% Source of truth is the Markdown; regenerate with src/S1765_build_tex.py.
+\documentclass[11pt,a4paper,onecolumn]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{microtype}
+\usepackage{longtable,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\newcommand{\bookmark}{\textbf{[cited]}}
+\setlength{\parskip}{0.55em}
+\setlength{\parindent}{0pt}
+\setlength{\LTpre}{0.6em}
+\setlength{\LTpost}{0.6em}
+\title{Section Criteria for Integral Lorentzian Lattices\\ and the Cost of Realization}
+\author{Vladimir Sobol\thanks{ORCID~\href{https://orcid.org/0009-0006-9829-7931}{0009-0006-9829-7931}. Independent Researcher, Ukraine. Corresponding: \href{mailto:amperaggio@gmail.com}{amperaggio@gmail.com}.}}
+\date{2026-08-27}
+\begin{document}
+\maketitle
+
+\textbf{Vladimir Sobol} $\cdot $ ORCID [0009-0006-9829-7931](https://orcid.org/0009-0006-9829-7931) $\cdot $ Independent Researcher
+
+
+\section*{Abstract}
+
+For an integral lattice $\Lambda _W$ of signature (3,1) and a positive definite integral $L$ of rank 3 we give a \textbf{criterion} for $L$ to be a \textbf{primitive timelike section} of $\Lambda _W$ by a primitive vector of norm $-n$. The criterion runs on three data --- \textbf{signature, bilinear discriminant form and parity} (type I/II) --- and states: such a section exists \textbf{if and only if} there is an anti-isometry of glue subgroups $\gamma  : H_L \to  H_t$ whose graph $\Gamma $ satisfies $\Gamma ^\perp /\Gamma  \cong  disc(\Lambda _W)$ \textbf{as an isometry of forms}, and whose glued overlattice has \textbf{the same parity} as $\Lambda _W$. Both requirements are load-bearing: the order-only version of the first is insufficient, and without the second the statement is \textbf{false} --- a counterexample on the ambient $\operatorname{diag}(1,1,2,-2)$ is exhibited explicitly in \S{}3.4. The criterion is stated \textbf{relative to a fixed ambient} and is expressed \textbf{exclusively} in discriminant data and parity --- \textbf{the Gram matrix does not enter it}. The reverse implication rests on two checkable conditions: \textbf{(T0)} ("the named data determine the genus of the ambient") and \textbf{(T0c)} ("the genus of the ambient contains one class"); for rank 4, signature (3,1) and $|\det | \leq  4$ --- a scope covering all four ambients of this work --- both are \textbf{proved}: (T0) by a complete enumeration of genera (there are exactly seven, and the triple of data separates them pairwise, \S{}3.5), (T0c) by Eichler's classical theorem with a margin of $5^{6}$ (\S{}3, Remark 1).
+
+Two direct checks. \textbf{First}, substituting $disc(\Lambda _W) = 0$ returns the condition $\langle 1/n\rangle $ of the unimodular case, that is, the theorem of preprint-6: the generalisation \textbf{collapses back onto what is already in print}. \textbf{Second}, the parity rider shows that this boundary is \textbf{sharp}: for $p \equiv  1 (mod 8)$ the condition $\langle 1/n\rangle $ is no longer sufficient, because two lattices with an \textbf{identical} discriminant form fall into different ambients, and what separates them is one extra bit --- parity. The case $p = 3$ is thereby isolated ($II_{3,1}$ does not exist), so the printed result of preprint-6 \textbf{stands as it is}.
+
+From the criterion it follows that the \textbf{minimal discriminant of an ambient} --- the "cost" of a lattice $L$ --- depends \textbf{only on the bilinear discriminant form} of $L$, and is therefore an \textbf{invariant of its genus}; we give for it a \textbf{closed expression} $cost(L) = min{ |disc(L)|\cdot n_min(m)/m^{2} : m | exp(disc L) }$. Finiteness of the range here is \textbf{structural}, not computational, so the expression contains no search bound --- and that is exactly why it is \textbf{robust against truncation}, which in earlier bounded computations three times produced inflated values. Evaluating the expression on fourteen representatives gives a table of costs; it is indexed by the \textbf{discriminant form}, not by Bravais type and not by the order of the discriminant, because cost is \textbf{not} an invariant of the type and is \textbf{not monotone} in the order. In particular, the centrings of the cubic lattice acquire exact addresses: \textbf{FCC --- 3}, \textbf{BCC --- 8}, while the blocking of lower values for FCC splits into \textbf{two different} mechanisms (insolubility of $k^{2} \equiv  3 (mod 4)$ at $d = 1$; insolubility of $2k^{2} \equiv  3 (mod 4)$ at $d = 2$), whereas $d = 3$ is blocked by nothing at all.
+
+There is no physical reading anywhere in this work: the signature (3,1) appears as an arithmetic condition --- in particular as the \textbf{condition of applicability} of the classical theorem on the genus of indefinite forms, on which the criterion leans in one explicitly named step.
+
+
+\section*{\S{}1 $\cdot $ Statement of the problem}
+
+Preprint-6 (Zenodo $10.5281/zenodo.22068307$) classified the primitive timelike sections of the \textbf{unimodular} lattice $I_{p,1}$ by the condition $\langle 1/n\rangle $ ($P6.Thm1(7)$).
+
+\textbf{The question of this work:} what replaces that condition for an \textbf{arbitrary} integral Lorentzian lattice.
+
+\textbf{What exactly is being asked, and under which quantifier:} the lattice $\Lambda _W$ is taken as \textbf{GIVEN}. The whole work answers the question
+
+\begin{quote}"is $L$ a primitive timelike section of \textbf{THIS} lattice $\Lambda _W$",\end{quote}
+
+and \textbf{not} "does there exist \textbf{some} ambient into which $L$ embeds". The difference is not rhetorical: under the second reading the answer is almost always "yes" and the question is empty; it acquires content \textbf{only} for a fixed ambient --- and it is precisely this quantifier that the statement of \textbf{P7.Thm1} carries. The one place where the ambient is \textbf{not} fixed but \textbf{sought} is the definition of \textbf{cost} (P7.Def5): there the minimum is taken over all admissible $\Lambda _W$, and this is said in the definition itself.
+
+\textbf{Scope, stated once and at the start:} this work contains \textbf{no physical reading whatsoever}. No object is read as "time", "energy" or "mass"; the signature (3,1) appears \textbf{exclusively} as an arithmetic condition --- and in one place (Remark 1) as the \textbf{condition of applicability} of a classical theorem.
+
+
+\section*{\S{}2 $\cdot $ Definitions}
+
+\textbf{P7.Def1 --- discriminant form.} For a non-degenerate integral $L$: $disc(L) := L^{\vee}/L$ with the \textbf{bilinear} form $b_L : disc(L) \times  disc(L) \to  \mathbb{Q}/\mathbb{Z}$. The abbreviation $b$ is used where the discriminant form is meant as an \textbf{invariant} (with no lattice named in the subscript).
+
+\begin{quote}\textbf{Why $b mod \mathbb{Z}$ and not $q mod 2\mathbb{Z}$:} the quadratic version is defined only for \textbf{even} lattices, while $\langle -n\rangle $ is \textbf{odd for odd $n$} --- and that is not an edge case but the main one. The whole criterion is therefore stated in the bilinear form. The price of this choice is named explicitly: the bilinear form \textbf{does not see parity}, so parity enters the data of the criterion as a \textbf{separate bit} (\S{}3).\end{quote}
+
+\textbf{P7.Def2 --- glue subgroups and anti-isometry.} Subgroups $H_L \subseteq  disc(L)$, $H_t \subseteq  disc(\langle -n\rangle )$ are called \textbf{glue subgroups}. An isomorphism $\gamma  : H_L \to  H_t$ is an \textbf{anti-isometry} if $b_t(\gamma x, \gamma y) = -b_L(x, y)$.
+
+\begin{quote}The term is not invented: "glue" is the established word of the construction (\bookmark{} Conway--Sloane, SPLAG ch. 4: \emph{glue group}, \emph{glue vectors}; Nikulin \S{}1.5). We name only the \textbf{subgroups} on which the gluing is defined, because all the corollaries refer to them.\end{quote}
+
+\textbf{P7.Def3 --- the graph.} $\Gamma  := {(x, \gamma x) : x \in  H_L} \subseteq  disc(L) \oplus  disc(\langle -n\rangle )$. $\Gamma $ is \textbf{isotropic} if $b_L \oplus  b_t$ vanishes on $\Gamma $ --- for the graph of an anti-isometry this holds \textbf{identically}: $b_L(x,y) + b_t(\gamma x,\gamma y) = b_L(x,y) - b_L(x,y) = 0$.
+
+\begin{quote}\textbf{Two sides of one equivalence:} here, "anti-isometry $\Longrightarrow $ isotropy"; in (Thm1.3), the converse. Together: for subgroups with injective projections, \textbf{isotropic graphs are exactly the graphs of anti-isometries}.\end{quote}
+
+\textbf{P7.Def4 --- section.} An integral positive definite $L$ of rank 3 (abstract) is a \textbf{primitive timelike section} of $\Lambda _W$ by $t$ if $t \in  \Lambda _W$ is \textbf{primitive} ($t/k \notin  \Lambda _W$ for every integer $k \geq  2$), $\langle t,t\rangle  = -n < 0$, and there is an isometric embedding $\iota  : L \hookrightarrow  \Lambda _W$ with $\iota (L) = t^\perp  \cap  \Lambda _W$. The shorthand $L = t^\perp  \cap  \Lambda _W$ is henceforth read through this $\iota $ --- the reverse implication proves the \textbf{existence of an embedding}, not an equality of sets.
+
+\begin{quote}\textbf{Primitivity is required of $t$ --- and this requirement is load-bearing; for $L$ it is automatic.} Automatic: $\Lambda _W \cap  (L\otimes \mathbb{Q}) = \Lambda _W \cap  t^\perp  = L$ by definition --- the intersection of a lattice with a subspace is always primitive. Load-bearing: without the requirement on $t$ the theorem of \S{}3 is \textbf{false}. Witness: $\Lambda _W = I_{3,1}$, $t = 2e_{4}$, $n = 4$, $L = t^\perp  \cap  \Lambda _W = \mathbb{Z}^{3}$ --- the section exists, but the right-hand leg of the criterion fails: $disc(L) = 0$ $\Longrightarrow $ the only anti-isometry is the empty one, $\Gamma  = 0$, and $\Gamma ^\perp /\Gamma  \cong  \mathbb{Z}/4 \ncong  disc(I_{3,1}) = 0$. The same $\mathbb{Z}^{3}$ is a section by the primitive $e_{4}$ with $n = 1$ --- the norm of a section is well defined only on a primitive vector.\end{quote}
+
+\textbf{P7.Def5 --- cost.}
+\begin{quote}\ttfamily\small\obeylines
+   cost(L) := min \{ |det $\Lambda$\_W| : $\Lambda$\_W integral, of signature (3,1),
+                    and L a primitive timelike section of $\Lambda$\_W by some vector \}
+\end{quote}
+
+\textbf{P7.Def6 --- $j_min$ and the admissible glue orders.}
+\begin{quote}\ttfamily\small\obeylines
+   D(L)      := \{ m $\geq $ 1 : m | exp(disc L) \}
+   j\_min(m)  := min \{ j $\geq $ 1 : $\exists $ x $\in $ disc(L) of order m, $\exists $ a unit k mod m,
+                              j$\cdot $k$^{2}$ $\equiv $ b\_L(x,x)$\cdot $m  (mod m) \} ,   m $\in $ D(L)
+   n\_min(m)  := m $\cdot $ j\_min(m)
+\end{quote}
+\begin{quote}\textbf{Why $exp$ and not $|disc|$:} taking $m | |disc(L)|$ would admit an $m$ with no element of order $m$, i.e. the term under $min$ would be \textbf{undefined}. Example: $\mathbb{Z}/2 \times  \mathbb{Z}/2$ has $4 | 4$ but $exp = 2$. For the computation this changes nothing --- \textbf{for the statement it changes everything}. It is a separate definition because $j_min$ stands \textbf{in the statement} of the theorem and is referred to by the corollaries: a quantity named only inside a theorem gets cited by transcription.\end{quote}
+
+
+\section*{\S{}3 $\cdot $ P7.Thm1 --- the gluing criterion}
+
+\begin{quote}\textbf{P7.Thm1.} Let $L$ be a positive definite integral lattice of rank 3, $n \geq  1$, and let $\Lambda _W$ be an integral lattice of signature (3,1) \textbf{(both fixed)} satisfying the conditions  \textbf{(T0)} the triple of data \textbf{(signature, bilinear discriminant form, parity)} determines the genus of $\Lambda _W$ uniquely among integral lattices --- a condition \textbf{checkable by a finite comparison} (for rank 4, sig (3,1), $|\det | \leq  4$ --- in particular for all four ambients of this work --- it is \textbf{proved} by an enumeration of genera, P7.Prop1, \S{}3.5);  \textbf{(T0c)} the genus of $\Lambda _W$ contains \textbf{one isometry class}. (Class = spinor genus for indefinite lattices of rank $\geq $ 3 --- \bookmark{} Eichler; a genus with more than one spinor genus in rank 4 requires $|\det | \geq  5^{6} = 15625$ --- \bookmark{} SPLAG Ch. 15, Cor. 22; hence for $|\det | \leq  4$ condition (T0c) holds with room to spare --- Remark 1, leg 1. Without (T0c) the reverse leg yields only "$\Lambda $ lies in the genus of $\Lambda _W$", not an isometry.)  Then \textbf{$L$ is a primitive timelike section of $\Lambda _W$ by a primitive vector of norm $-n$} (P7.Def4) $\Longleftrightarrow $ \textbf{there exists an anti-isometry of glue subgroups $\gamma  : H_L \to  H_t$} whose graph $\Gamma $ satisfies \textbf{both} conditions:  \textbf{(T1)} $\Gamma ^\perp /\Gamma  \cong  disc(\Lambda _W)$ --- \textbf{as an isometry of forms}, not merely as an isomorphism of groups; \textbf{(T2)} the glued overlattice $\Lambda (\Gamma )$ has \textbf{the same parity} (type I/II) as $\Lambda _W$; parity is read off the norms of the glue vectors $mod 2\mathbb{Z}$.  (Isotropy of $\Gamma $ is automatic by P7.Def3.)\end{quote}
+
+\textbf{(T1) "as a form", not "as a group".} The order-only version fails at the first non-cyclic discriminant (\textbf{P7.Cor3}, \S{}6): $\mathbb{Z}/4$ and $\mathbb{Z}/2\times \mathbb{Z}/2$ have the same order 4 and are not isometric. But the \textbf{group} alone is not enough either: on $\mathbb{Z}/6$ there live \textbf{two non-isometric forms}, and they give \textbf{different costs} --- $b$ on the generator equal to $5/6$ gives 2, and $1/6$ gives 1 (\S{}7.2 against the row \emph{oP} in \S{}7.4). A group is not a form.
+
+\textbf{(T2) parity is the third datum, and it is not decorative.} The criterion runs on the triple \textbf{signature + bilinear discriminant form + parity}. With these data the equivalence holds for \textbf{all four} ambients of this work: for three of them an even competitor \textbf{does not exist} (excluded by Milgram's formula --- table \textbf{\S{}3.4}), and for the fourth the \textbf{bit separates} the odd $\operatorname{diag}(1,1,2,-2)$ from the even $A_{1}^{2}\oplus U$. Without \textbf{(T2)} the statement is \textbf{false} precisely on the fourth --- the explicit pair is in \S{}3.4.
+
+\subsection*{Remark 1 --- what the theorem stands on (to be read BEFORE the proof)}
+
+The step requires the data of the criterion to determine $\Lambda _W$ \textbf{uniquely}, not merely up to genus. It stands on \textbf{two} legs, and they must be seen separately --- their conflation was the reason the second went unchecked for a long time.
+
+\textbf{Leg 1 --- "class = genus" for our objects.} The classical theorem (\textbf{Eichler}; \textbf{Kneser}) for \textbf{indefinite} integral lattices of \textbf{rank $\geq $ 3} states: \textbf{class = SPINOR genus}. \bookmark{} a named import, \textbf{not re-derived} in this work. Our ambient has rank \textbf{4}, so the rank condition is met. The classical theorem gives "class = \textbf{spinor genus}", whereas the step needs "class = \textbf{genus}". These are \textbf{not identical}: a genus may contain \textbf{several} spinor genera. For our objects the difference is void, and this is a count, not an estimate: in rank 4 a genus with \textbf{more than one} spinor genus requires $|\det | \geq  5^{6} = 15625$ (\bookmark{} SPLAG Ch. 15, Cor. 22); our four ambients have $|\det | \in  {1, 2, 4, 4}$ --- a margin of almost four thousandfold, so the condition holds \textbf{trivially}, not "at the edge". This is exactly condition \textbf{(T0c)} of the theorem: within the scope of this work it is proved; for an arbitrary $\Lambda _W$ it stands in the statement as a separate hypothesis (a genus with several classes would make the conclusion of (Thm1.11) false).
+
+\textbf{Leg 2 --- parity, and the limit of what it gives.} "Signature + \textbf{bilinear} discriminant form" \textbf{do not determine the genus}: parity is a genus invariant that the bilinear form \textbf{does not see}. Counterexample: $A_{1}^{3}\oplus \langle -2\rangle $ glues by different $\Gamma $ into the \textbf{even} $A_{1}^{2}\oplus U$ and the \textbf{odd} $\operatorname{diag}(1,1,2,-2)$ --- same signature, same discriminant group and $b$, different genera. That is exactly why parity stands in the data of the criterion as the separate condition \textbf{(T2)}.
+
+\begin{quote}\textbf{The limit of leg 2 --- and the scope in which it is closed.} From the fact that parity is \textbf{necessary} it does not follow that the triple "signature + $b$ + parity" is \textbf{sufficient} to determine the genus of an \textbf{arbitrary} lattice: the 2-adic genus symbol of an odd lattice is in general finer than a single global bit (it carries the type and the oddity of each Jordan constituent). Sufficiency therefore stands as the separate condition \textbf{(T0)} --- and for rank 4, sig (3,1), $|\det | \leq  4$ it is \textbf{proved} by a complete enumeration of genera (\textbf{P7.Prop1}, \S{}3.5): there are exactly seven genera, seven triples, and the correspondence is one-to-one. For arbitrary $\det $, (T0) is \textbf{not claimed} --- this work gives no general characterisation of (T0)-lattices and does not need one.\end{quote}
+
+\textbf{Without these two legs} the criterion yields only: $\Lambda $ lies in \textbf{the same genus} as $\Lambda _W$ --- that is, "a section of \textbf{some} lattice of the genus" instead of "a section of $\Lambda _W$ \textbf{itself}". The whole force of the "$\Longleftrightarrow $" rests on this step.
+
+\textbf{Counterfactual --- why signature (3,1) is a condition of applicability.} For \textbf{definite} lattices, class and genus \textbf{may differ}, and the argument of (Thm1.11) is \textbf{unavailable} there; hence for a definite ambient the criterion in the stated form would be unjustified. Signature (3,1) is a \textbf{condition of applicability}, not a convenience of notation.
+
+\subsection*{P7.Lem1 --- the gluing identity (bilinear, with no parity restriction)}
+
+\begin{quote}\textbf{P7.Lem1.} Let $M$ be a non-degenerate integral lattice, $\Lambda  \supseteq  M$ an integral overlattice of finite index, $\Gamma  := \Lambda /M \subseteq  M^{\vee}/M = disc(M)$, and $\Gamma ^\perp  := {x \in  disc(M) : b(x, \Gamma ) = 0 in \mathbb{Q}/\mathbb{Z}}$. Then $disc(\Lambda ) \cong  \Gamma ^\perp /\Gamma $ --- as groups with a bilinear form $mod \mathbb{Z}$.\end{quote}
+
+\emph{Proof.} $M \subseteq  \Lambda $ (given); integrality of $\Lambda $ gives $\Lambda  \subseteq  \Lambda ^{\vee}$; from $M \subseteq  \Lambda $ we get $\Lambda ^{\vee} \subseteq  M^{\vee}$ --- hence the chain $M \subseteq  \Lambda  \subseteq  \Lambda ^{\vee} \subseteq  M^{\vee}$. For $x \in  M^{\vee}$, the condition $b(x, \Lambda ) \subseteq  \mathbb{Z}$ is equivalent to $b(x, \gamma ) \in  \mathbb{Z}$ for all $\gamma  \in  \Gamma $ (on $M$ integrality is automatic), i.e. $(x mod M) \in  \Gamma ^\perp $; hence $\Lambda ^{\vee}/M = \Gamma ^\perp $. Since $\Lambda /M = \Gamma $, the third isomorphism theorem gives $disc(\Lambda ) = \Lambda ^{\vee}/\Lambda  = (\Lambda ^{\vee}/M)/(\Lambda /M) = \Gamma ^\perp /\Gamma $, and the bilinear form on $\Lambda ^{\vee}/\Lambda $ is induced from that of $M$ identically. $\blacksquare $
+
+\begin{quote}\textbf{Why a lemma here rather than a citation.} The classical exposition of this identity (Nikulin) runs through the \textbf{quadratic} discriminant form $q mod 2\mathbb{Z}$, defined only for \textbf{even} lattices --- whereas our case is odd. The group-theoretic and bilinear side of the identity, as the proof shows, \textbf{needs no parity at all} --- so for odd lattices it is proved rather than cited. A numerical check of both sides (by independent computations) was carried out on three odd gluings and one even control.\end{quote}
+
+\subsection*{P7.Lem2 --- gluing by an isotropic subgroup}
+
+\begin{quote}\textbf{P7.Lem2.} Let $M$ be a non-degenerate integral lattice, $\Gamma  \subseteq  disc(M)$ a subgroup, and $\Lambda _\Gamma  := {x \in  M^{\vee} : x mod M \in  \Gamma }$. Then: \textbf{(a)} $\Lambda _\Gamma $ is a subgroup of $M^{\vee}$ with $M \subseteq  \Lambda _\Gamma $ and $\Lambda _\Gamma /M = \Gamma $; \textbf{$\Lambda _\Gamma $ is integral $\Longleftrightarrow $ $\Gamma $ is isotropic}; \textbf{(b)} for $M = L \oplus  \langle t\rangle $: $L$ is primitive in $\Lambda _\Gamma $ $\Longleftrightarrow $ the projection $\Gamma  \to  disc(\langle t\rangle )$ is \textbf{injective}; symmetrically, $\langle t\rangle $ is primitive in $\Lambda _\Gamma $ $\Longleftrightarrow $ the projection $\Gamma  \to  disc(L)$ is \textbf{injective}.\end{quote}
+
+\emph{Proof.} \textbf{(a)} $\Lambda _\Gamma $ is the preimage of the subgroup $\Gamma $ under $M^{\vee} \to  disc(M)$, hence a subgroup; $M$ is the preimage of zero, so $M \subseteq  \Lambda _\Gamma $ and $\Lambda _\Gamma /M = \Gamma $. Integrality: for $x, y \in  \Lambda _\Gamma $ the value $b(x, y) mod \mathbb{Z}$ equals $b(x, \bar{y})$, hence $b(\Lambda _\Gamma , \Lambda _\Gamma ) \subseteq  \mathbb{Z}$ $\Longleftrightarrow $ $b$ vanishes on $\Gamma $ (pairs with $x = 0$ are integral automatically: $x \in  M$, $y \in  M^{\vee}$). \textbf{(b)} $\Lambda _\Gamma  \cap  (L\otimes \mathbb{Q}) \subseteq  M^{\vee} \cap  (L\otimes \mathbb{Q}) = L^{\vee}$, so an element of the intersection has image of the shape $(x, 0) \in  \Gamma $; hence $\Lambda _\Gamma  \cap  (L\otimes \mathbb{Q}) = L$ $\Longleftrightarrow $ $\Gamma $ contains no non-zero element with vanishing $\langle t\rangle $-component $\Longleftrightarrow $ $\Gamma  \to  disc(\langle t\rangle )$ is injective. Symmetrically for $\langle t\rangle $. $\blacksquare $
+
+\begin{quote}The lemma closes in one place the four steps that lean on it: (Thm1.2)/(Thm1.3) in the forward leg (there $\Lambda _W = \Lambda _\Gamma $ for $\Gamma  = \Lambda _W/M$), (Thm1.7)/(Thm1.10) in the reverse leg, and the chain (Thm2.9).\end{quote}
+
+\subsection*{\S{}3.1 $\cdot $ Proof: the forward leg (section $\Longrightarrow $ $\gamma $)}
+
+\textbf{(Thm1.1)} $t$ primitive, $\langle t,t\rangle  = -n$, $L = t^\perp  \cap  \Lambda _W$ (primitive automatically, P7.Def4) $\Longrightarrow $ $L \oplus  \langle t\rangle  \subseteq  \Lambda _W$ --- a sublattice of finite index. \textbf{(Thm1.2)} $\Gamma  := \Lambda _W/(L \oplus  \langle t\rangle )$; integrality of $\Lambda _W$ $\Longrightarrow $ $\Gamma $ is \textbf{isotropic} \emph{(P7.Lem2(a), the direction "integral $\Longrightarrow $ isotropic"; for the graph of an anti-isometry this also holds identically by P7.Def3)}. \textbf{(Thm1.3)} Primitivity of $L$ (automatic) gives injectivity of $\Gamma  \to  disc(\langle t\rangle )$; primitivity of $\langle t\rangle $ (the requirement of P7.Def4 --- exactly here is where it bears) gives injectivity of $\Gamma  \to  disc(L)$ \emph{(both --- P7.Lem2(b))} $\Longrightarrow $ $\Gamma $ is the graph of an isomorphism $\gamma $. The anti-isometry is read \textbf{bilinearly}, from isotropy on a pair of distinct elements $(x,\gamma x)$, $(y,\gamma y) \in  \Gamma $:
+\begin{quote}\ttfamily\small\obeylines
+   0 = (b\_L $\oplus $ b\_t)((x,$\gamma $x),(y,$\gamma $y)) = b\_L(x,y) + b\_t($\gamma $x,$\gamma $y)   $\Longrightarrow $   b\_t($\gamma $x,$\gamma $y) = $-$b\_L(x,y)
+\end{quote}
+for \textbf{all} $x, y$ --- exactly what P7.Def2 demands. \emph{(It cannot be derived through the diagonal $b(x,x)$: over $\mathbb{Q}/\mathbb{Z}$ polarisation does not recover a bilinear form on 2-torsion.)} \textbf{(Thm1.4)} $disc(\Lambda _W) \cong  \Gamma ^\perp /\Gamma $ as a form --- condition \textbf{(T1)}. \emph{(P7.Lem1.)} \textbf{(Thm1.4$'$)} The norms of the glue vectors of $\Lambda _W/(L\oplus \langle t\rangle )$ $mod 2\mathbb{Z}$ give the parity of $\Lambda _W$ --- condition \textbf{(T2)} holds identically, since the overlattice is $\Lambda _W$ itself. \textbf{(Thm1.5)} $disc(\langle t\rangle ) \cong  \mathbb{Z}/n$ with $b(k,k) = -k^{2}/n$. $\blacksquare $
+
+\subsection*{\S{}3.2 $\cdot $ Proof: the reverse leg ($\gamma $ $\Longrightarrow $ $\Lambda$\_W)}
+
+\textbf{(Thm1.6)} $M := L \oplus  \langle -n\rangle $, signature $(3,0)+(0,1) = (3,1)$. \textbf{(Thm1.7)} An isotropic $\Gamma  \subseteq  disc(M)$ determines an \textbf{integral} overlattice $\Lambda  := \Lambda _\Gamma  \supseteq  M$, $\Lambda /M \cong  \Gamma $ \emph{(P7.Lem2(a))}. \textbf{(Thm1.8)} The signature is preserved $\Longrightarrow $ $\Lambda $ has (3,1). \textbf{(Thm1.9)} $disc(\Lambda ) \cong  \Gamma ^\perp /\Gamma $ \emph{(P7.Lem1 --- the same lemma as in (Thm1.4))}, and $\Gamma ^\perp /\Gamma  \cong  disc(\Lambda _W)$ --- by condition \textbf{(T1)}. \textbf{(Thm1.10)} Primitivity --- \textbf{two different properties, each with its own ground} \emph{(P7.Lem2(b))}: $L$ primitive $\Longleftarrow$ injectivity of $\Gamma  \to  disc(\langle t\rangle )$; $\langle t\rangle $ primitive $\Longleftarrow$ injectivity of $\Gamma  \to  disc(L)$; both injectivities are automatic, since $\Gamma $ is the graph of an \textbf{isomorphism} $\gamma $. \textbf{(Thm1.11)} $\Lambda $ and $\Lambda _W$ have the same signature, discriminant form \textbf{and parity} (the last by condition \textbf{(T2)}). By condition \textbf{(T0)} these data determine the genus of $\Lambda _W$ uniquely $\Longrightarrow $ $\Lambda $ and $\Lambda _W$ lie in one genus; by condition \textbf{(T0c)} that genus contains one class $\Longrightarrow $ $\Lambda  \cong  \Lambda _W$. For the ambients of this work both conditions are proved: (T0) by the enumeration of genera (P7.Prop1, \S{}3.5), (T0c) by \bookmark{} \textbf{Eichler} plus the $5^{6}$ margin (Remark 1, leg 1). $\blacksquare $
+
+\subsection*{\S{}3.3 $\cdot $ The measurement that accompanies the proof}
+
+Two \textbf{independent routes} to one number: \textbf{route (1)} --- a direct enumeration of primitive $t$ with $t^{2} = -n \leq  4$; \textbf{route (2)} --- the gluing formula $|disc(L)|\cdot n = |disc(\Lambda _W)|\cdot index^{2}$.
+
+\begin{longtable}{p{0.16\linewidth} p{0.16\linewidth} p{0.16\linewidth} p{0.16\linewidth} p{0.16\linewidth} p{0.16\linewidth}}
+\toprule
+\textbf{ambient} & \textbf{`\textbackslash\{\}} & \textbf{disc\textbackslash\{\}} & \textbf{`} & \textbf{what the enumeration produced} & \textbf{(1) against (2)} \\
+\midrule\endhead
+$I_{3,1}$ \textbf{(control, disc = 0)} & 1 & `n $\to $ \textbackslash\{\} & disc(L)\textbackslash\{\} & = n$, cyclic $$\mathbb{Z}$/n` & \textbf{100 \%} \\
+$\operatorname{diag}(1,1,1,-2)$ & 2 & $1\to 2$, $2\to {1, \mathbb{Z}/2\times \mathbb{Z}/2}$, $3\to 6$, $4\to \mathbb{Z}/2\times \mathbb{Z}/4$ & \textbf{100 \%} &  &  \\
+$\operatorname{diag}(1,1,1,-4)$ & 4 & $1\to 4$, $2\to \mathbb{Z}/2\times \mathbb{Z}/4$, $3\to 12$, $4\to 1$ & \textbf{100 \%} &  &  \\
+$A_{3}\oplus \langle -1\rangle $ --- \textbf{the same ambient} as the row above & 4 & $1\to 4$ ($= A_{3}$), $2\to \mathbb{Z}/2\times \mathbb{Z}/4$, $3\to 12$ & \textbf{100 \%} &  &  \\
+\bottomrule
+\end{longtable}
+
+The last two rows describe \textbf{one} lattice: $\operatorname{diag}(1,1,1,-4) \cong  A_{3} \oplus  \langle -1\rangle $ --- both have a vector of norm $-1$, in both the complement is $A_{3}$, the theta series are identical. The identity of their columns is not a coincidence but a consequence of this isometry. $\Longrightarrow $ \textbf{the measurement covered three distinct ambients out of four.} The fourth, $\operatorname{diag}(1,1,2,-2)$, enters the work as the witness of \S{}6 and \S{}3.4; the test "(1) against (2)" could not have caught anything on it in any case --- both routes enumerate \textbf{actual} sections, so a false reverse leg is invisible to them. That is exactly why a counterexample (\S{}3.4) was needed, and not a wider search.
+
+The unimodular row is a \textbf{control, not an illustration}: the enumeration reproduced $\langle 1/n\rangle $ \textbf{by itself}, without being tuned to it. This is \textbf{\S{}4 in action}.
+
+\subsection*{\S{}3.4 $\cdot $ When (T2) holds by itself: exclusion of the even competitor}
+
+Condition \textbf{(T2)} is non-trivial only where an \textbf{even competitor exists} --- that is, where there is an even lattice with the same signature and the same $b$ as $\Lambda _W$. This question is settled by Milgram's \textbf{necessary} condition, and the answer for the four ambients of this work fits into a table.
+
+\textbf{The mechanism.} An even lattice carries a quadratic refinement $q : disc \to  \mathbb{Q}/2\mathbb{Z}$ with $b_q = b$. Milgram's formula (\bookmark{} \S{}10) relates the signature of the lattice to the Gauss sum of the refinement:
+\begin{quote}\ttfamily\small\obeylines
+        GS(q) = $\Sigma$\_x e\textasciicircum{}\{$\pi $i$\cdot $q(x)\} = $\sqrt{}$|disc| $\cdot $ e\textasciicircum{}\{$\pi $i$\cdot $$\sigma$(q)/4\} ,      $\sigma$($\Lambda$) $\equiv $ $\sigma$(q)  (mod 8)
+\end{quote}
+Signature (3,1) gives $\sigma  = 2$. Hence: if \textbf{no} refinement $q$ of the form $b$ has $\sigma (q) \equiv  2 (mod 8)$, then an even lattice with these data \textbf{does not exist} --- there is no competitor, and (T2) holds automatically. There are finitely many refinements (on a cyclic generator of order $m$ the value $q(g)$ is determined by $b(g,g)$ up to $\mathbb{Z}/2\mathbb{Z}$), so the enumeration is \textbf{complete}, not selective.
+
+\begin{longtable}{p{0.23\linewidth} p{0.23\linewidth} p{0.23\linewidth} p{0.23\linewidth}}
+\toprule
+\textbf{ambient} & \textbf{$disc$} & \textbf{$\sigma (q)$ --- all attainable} & \textbf{even competitor} \\
+\midrule\endhead
+$I_{3,1}$ & trivial & ${0}$ & \textbf{excluded} \\
+$\operatorname{diag}(1,1,1,-2)$ & $\mathbb{Z}/2$ & ${1, 7}$ & \textbf{excluded} \\
+$\operatorname{diag}(1,1,1,-4)$ & $\mathbb{Z}/4$ & ${3, 7}$ & \textbf{excluded} \\
+$\operatorname{diag}(1,1,2,-2)$ & $\mathbb{Z}/2 \times  \mathbb{Z}/2$ & ${0, \textbf{2}, 6}$ & \textbf{NOT excluded} \\
+\bottomrule
+\end{longtable}
+
+\textbf{Three conclusions.}
+
+\textbf{(i)} On the first three, $2 \notin  \sigma (q)$ $\Longrightarrow $ there is no even competitor $\Longrightarrow $ \textbf{(T2) holds by itself}, and there the criterion works on the signature and $b$ alone. \textbf{(ii)} The first row is \textbf{Remark 2} (\S{}5) in wider notation: for a trivial discriminant the only refinement $q = 0$ gives $\sigma (q) = 0$, i.e. "an even unimodular lattice of signature (3,1) does not exist". Two statements that looked different are \textbf{one mechanism}, $\sigma  mod 8$. \textbf{(iii)} On the fourth, $\sigma (q) = 2$ \textbf{is attainable} --- and a competitor is indeed there: $A_{1}^{2}\oplus U$, constructed explicitly below. So the table \textbf{does not over-squeeze}: it does not exclude what exists. It is on this row that (T2) carries its weight.
+
+\textbf{The explicit pair of the fourth row.} $L = A_{1}^{3}$ (Gram $\operatorname{diag}(2,2,2)$), $n = 2$, $\Lambda _W = \operatorname{diag}(1,1,2,-2)$: condition \textbf{(T1)} holds --- $H_L = \langle g_{3}\rangle $, $\gamma  : g_{3} \mapsto  1$ is an anti-isometry ($\tfrac{1}{2} = -\tfrac{1}{2} mod \mathbb{Z}$), and $\Gamma ^\perp /\Gamma  \cong  (\mathbb{Z}/2)^{2}$ with $b = \operatorname{diag}(\tfrac{1}{2},\tfrac{1}{2})$, which is \textbf{isometric} to $disc(\operatorname{diag}(1,1,2,-2))$. But the gluing yields $\Lambda  = A_{1}^{2}\oplus U$ --- the glue vector $w = (e_{3}+t)/2$ has $w^{2} = 0$, and the pair $w, (e_{3}-t)/2$ is hyperbolic $\Longrightarrow $ $\Lambda $ is \textbf{even}, whereas $\Lambda _W$ is \textbf{odd}. Condition \textbf{(T2)} is precisely what filters this case out.
+
+\begin{quote}\textbf{On the status of this table.} Milgram gives a \textbf{necessary} condition: $2 \notin  \sigma (q)$ proves the \textbf{non-existence} of a competitor strictly. The converse --- that for $\sigma (q) = 2$ a competitor does exist --- does \textbf{not} follow from Milgram, and for the fourth row it is proved \textbf{not} by a Gauss sum but by the \textbf{explicit construction} of $A_{1}^{2}\oplus U$. Two different methods, each used where it proves something.\end{quote}
+
+\subsection*{\S{}3.5 $\cdot $ P7.Prop1 --- condition (T0) proved by an enumeration of genera}
+
+\begin{quote}\textbf{P7.Prop1.} Integral lattices of rank 4, signature (3,1), $|\det | \in  {1, 2, 4}$ exist, up to genus, in \textbf{exactly seven} kinds, and the triple \textbf{(discriminant group, $b$, parity)} takes on them \textbf{seven distinct values}. Hence the triple determines the genus: condition \textbf{(T0)} holds for \textbf{every} lattice of this scope --- in particular for all four ambients of this work.\end{quote}
+
+\emph{Proof.} The genus of an indefinite lattice is determined by the signature and the p-adic symbols; for $|\det | \in  {1,2,4}$ only the 2-adic one is non-trivial. The enumeration is run from above --- from the existence conditions --- and is closed from below by explicit lattices.
+
+\textbf{(1) The enumeration is complete.} The existence conditions for a system of p-adic symbols (\bookmark{} SPLAG Ch. 15 \S{}7.7: the determinant condition, the oddity formula, the conditions on each Jordan constituent; Theorem 11 --- such a system is realised by an integral form) give, for signature (3,1) and $|\det | \in  {1,2,4}$, \textbf{17 putative systems}. The merging of equivalent systems --- \emph{oddity fusion} and \emph{sign walking} --- is carried out \textbf{per Allcock--Gal--Mark} (\bookmark{}: Lemma 5.2 --- fusion only when the image is a legal symbol; Lemma 6.1 --- the three admissible cases of a sign walk; \textbf{Theorem 6.2 --- two symbols are isometric $\Longleftrightarrow $ related by a chain of these operations}), so the count is exact \textbf{in both directions}: the operations neither merge inequivalent systems nor leave equivalent ones unmerged:
+
+\begin{longtable}{p{0.19\linewidth} p{0.19\linewidth} p{0.19\linewidth} p{0.19\linewidth} p{0.19\linewidth}}
+\toprule
+\textbf{`\textbackslash\{\}} & \textbf{det\textbackslash\{\}} & \textbf{`} & \textbf{putative systems} & \textbf{canonical genera} \\
+\midrule\endhead
+1 & 1 & \textbf{1} &  &  \\
+2 & 4 & \textbf{1} &  &  \\
+4 & 12 & \textbf{5} &  &  \\
+\textbf{total} & \textbf{17} & \textbf{7} &  &  \\
+\bottomrule
+\end{longtable}
+
+Without canonicalisation the count is wrong: $|\det | = 2$ would read as "four genera" instead of one.
+
+\begin{quote}\textbf{Why the merging follows AGM rather than the "canonical form" of SPLAG \S{}7.6.} The uniqueness claim of \S{}7.6 ("at most one minus sign per train") is \textbf{false} in general --- the error is named by Allcock--Gal--Mark (\S{}6, following Allcock, Memoirs AMS 220); the correction is \emph{signways}. Step (1) therefore rests not on \S{}7.6 but on the AGM operations with Theorem 6.2, and its correctness does not hang on the absence of a known bad configuration: \textbf{all 17 systems are merged exclusively by operations licensed by Lemma 5.2 and Lemma 6.1} --- no forbidden sign walk occurs in any chain --- and Theorem 6.2 identifies the classes of this equivalence with the isometry classes, of which there are exactly $1 + 1 + 5 = 7$. A measured control: an unconditional train walk (without the conditions of Lemma 6.1) yields \textbf{eight} "genera" instead of seven --- the count is sensitive to the rule, so the agreement with step (3) is not a tautology of the instrument.\end{quote}
+
+\textbf{(2) The seven genera by name.}
+
+\begin{longtable}{p{0.13\linewidth} p{0.13\linewidth} p{0.13\linewidth} p{0.13\linewidth} p{0.13\linewidth} p{0.13\linewidth} p{0.13\linewidth}}
+\toprule
+\textbf{`\textbackslash\{\}} & \textbf{det\textbackslash\{\}} & \textbf{`} & \textbf{canonical 2-adic symbol} & \textbf{discriminant group} & \textbf{parity} & \textbf{representative} \\
+\midrule\endhead
+1 & $1^{+4}_I (t=2)$ & trivial & odd & $I_{3,1}$ &  &  \\
+2 & $1^{+3}_I (t=1) \cdot  2^{+1}_I (t=1)$ & $\mathbb{Z}/2$ & odd & $\operatorname{diag}(1,1,1,-2)$ &  &  \\
+4 & $1^{+3}_I (t=1) \cdot  4^{+1}_I (t=1)$ & $\mathbb{Z}/4$ & odd & $\operatorname{diag}(1,1,4,-1)$, $b = \tfrac{1}{4}$ &  &  \\
+4 & $1^{+3}_I (t=3) \cdot  4^{+1}_I (t=7)$ & $\mathbb{Z}/4$ & odd & $\operatorname{diag}(1,1,1,-4) \cong  A_{3}\oplus \langle -1\rangle $, $b = \tfrac{3}{4}$ &  &  \\
+4 & $1^{+2}_I (t=0) \cdot  2^{+2}_I (t=2)$ & $\mathbb{Z}/2\times \mathbb{Z}/2$ & \textbf{odd} & $\operatorname{diag}(1,1,2,-2)$ &  &  \\
+4 & $1^{+2}_I (t=2) \cdot  2^{+2}_{II} (t=0)$ & $\mathbb{Z}/2\times \mathbb{Z}/2$ & odd & $I_{2}\oplus U(2)$, $b$ with zero diagonal &  &  \\
+4 & $1^{+2}_{II} (t=0) \cdot  2^{+2}_I (t=2)$ & $\mathbb{Z}/2\times \mathbb{Z}/2$ & \textbf{even} & $A_{1}^{2}\oplus U$ &  &  \\
+\bottomrule
+\end{longtable}
+
+\begin{quote}\textbf{A homonym is named:} $t$ \textbf{inside the symbols} is the oddity of a Jordan constituent (SPLAG \S{}7.4 notation); it has nothing in common with the timelike vector $t$ of the criterion (P7.Def4).\end{quote}
+
+The representatives of rows 3 and 6 are explicit: $\operatorname{diag}(1,1,4,-1)$ has discriminant $\mathbb{Z}/4$ with $b(g,g) = (\tfrac{1}{4})^{2}\cdot 4 = \tfrac{1}{4}$; $I_{2}\oplus U(2)$ (where $U(2)$ is the Gram $[[0,2],[2,0]]$) has discriminant $(\mathbb{Z}/2)^{2}$ with zero diagonal and $b(x,y) = \tfrac{1}{2}$; both are odd, of signature (3,1) and $|\det | = 4$ --- and Prop1 itself pins each into its row: the triple coincides with exactly one genus. The full list of the 17 putative systems and the merge map $17 \to  7$ --- supplementary \textbf{S1} ([$supplementary/S1_genus_enumeration_17_to_7.md$](supplementary/S1\_genus\_enumeration\_17\_to\_7.md)).
+
+\textbf{(3) Seven triples --- and this is counted without symbols.} The columns "discriminant group / $b$ / parity" above are read off the symbols and could in principle separate more finely than a genuine isometry of $b$ --- in which case "seven distinct triples" would be an artefact of the notation. The separation is therefore taken from an \textbf{independent} count from below: on explicit Grams of this scope the triple --- with $b$ as an actual finite form, isometry decided by exhaustive search --- takes \textbf{seven distinct values}, and each is realised. The triple is a genus invariant; there are exactly seven genera and seven values $\Longrightarrow $ the map "genus $\to $ triple" is an \textbf{injection}. $\blacksquare $
+
+\textbf{Two checks on the table.} Rows 5 and 7 are the pair of \S{}3.4 ($\operatorname{diag}(1,1,2,-2)$ against $A_{1}^{2}\oplus U$): the same discriminant group, different parity --- and \textbf{two different} canonical symbols; canonicalisation does not merge what \S{}3.4 separated by an explicit construction. Row 1 is the only genus at $|\det | = 1$, and it is \textbf{odd}: the even variant drops out because type II gives oddity $t \equiv  0$, while the oddity formula demands $t \equiv  2$ --- this is Remark 2 (\S{}5), re-derived from the existence conditions rather than quoted.
+
+\textbf{Which invariant separates each pair.} The even competitors of the first three ambients are excluded by $\sigma (q) mod 8$ (\S{}3.4); at $|\det | = 4$ the groups $\mathbb{Z}/4$ and $\mathbb{Z}/2\times \mathbb{Z}/2$ are separated by the group structure; the two forms on $\mathbb{Z}/4$ --- by the diagonal of $b$ ($[0,\tfrac{1}{4},\tfrac{1}{4}]$ against $[0,\tfrac{3}{4},\tfrac{3}{4}]$); the two odd forms on $\mathbb{Z}/2\times \mathbb{Z}/2$ --- by the count of $b$-isotropic elements (1 against 3 non-zero); the pair of rows 5/7 --- by the parity bit \textbf{(T2)}, and this is the only place where it carries weight.
+
+\section*{\S{}4 $\cdot $ P7.Cor1 --- return to preprint-6}
+
+\begin{quote}\textbf{P7.Cor1.} $disc(\Lambda _W) = 0$ $\Longleftrightarrow $ $\Gamma $ is Lagrangian $\Longleftrightarrow $ $disc(L) \cong  \mathbb{Z}/n$ with $b_L = \langle 1/n\rangle $ --- that is, \textbf{P6.Thm1(7)}. The condition $\langle 1/n\rangle $ here and everywhere is read \textbf{bilinearly} (P7.Def1), in P6's notation: $b_L(g,g) \equiv  a/n (mod \mathbb{Z})$ on the generator, $a$ a quadratic residue mod $n$.\end{quote}
+
+\textbf{(Cor1.1)} $disc(\Lambda _W) \cong  \Gamma ^\perp /\Gamma $ $\Longrightarrow $ $disc(\Lambda _W) = 0 \Longleftrightarrow  \Gamma ^\perp  = \Gamma $ (Lagrangian). \textbf{(Cor1.2)} Order count:
+\begin{quote}\ttfamily\small\obeylines
+   |$\Gamma$| = |H\_L| = |H\_t|                                   (i)
+   |$\Gamma$|$^{2}$ = |disc(L)| $\cdot $ n                                  (ii)
+   |H\_L| $\leq $ |disc(L)| ,  |H\_t| $\leq $ n                        (iii)
+   $\Longrightarrow $  H\_L = disc(L),  H\_t = disc($\langle$$-$n$\rangle$),  |disc(L)| = n   (iv)
+\end{quote}
+equality of the products under upper bounds \textbf{forces equality of each factor}.
+\begin{quote}From (iv) it follows not merely that the orders are equal, but that $disc(L)$ is \textbf{isometric} to the cyclic form --- this is precisely where the requirement "as a form" starts to work (necessity --- \textbf{\S{}6}).\end{quote}
+
+\textbf{(Cor1.3)} From (Cor1.2) $H_L = disc(L)$, so $\gamma $ is an anti-isometry of \textbf{all} of $disc(L)$ onto $\mathbb{Z}/n$: $b_L(x, y) = -b_t(\gamma x, \gamma y)$. On the generator $g$ we have $\gamma (g) = k\cdot g_t$ with $k$ a unit mod $n$ ($\gamma $ being an isomorphism), and by (Thm1.5) $b_t(g_t, g_t) = -1/n$, hence
+\begin{quote}\ttfamily\small\obeylines
+   b\_L(g, g) = $-$k$^{2}$$\cdot $b\_t(g\_t, g\_t) = $-$k$^{2}$$\cdot $($-$1/n) = k$^{2}$/n   (mod $\mathbb{Z}$)
+\end{quote}
+--- that is, $b_L = \langle 1/n\rangle $ in the bilinear notation ($a = k^{2}$ a quadratic residue). The quadratic $q mod 2\mathbb{Z}$ does not arise anywhere here --- the transfer is purely bilinear. $\blacksquare $
+
+\textbf{Main argument of the work:} preprint-6 is \textbf{neither bypassed nor corrected} --- it \textbf{follows} from P7.Thm1 by substituting $disc = 0$. This is a \textbf{generalisation that folds back into the printed result}.
+
+
+\section*{\S{}5 $\cdot $ P7.Cor2 --- parity rider: the boundary of preprint-6 is exact}
+
+\begin{quote}\textbf{P7.Cor2.} If the glued overlattice $\Lambda (\Gamma )$ is \textbf{even}, then $L$ and $\langle -n\rangle $ are \textbf{both} even. \textbf{Corollary:} for $p \equiv  1 (mod 8)$ the condition $\langle 1/n\rangle $ is \textbf{not sufficient} --- it does not distinguish an even ambient from an odd one.\end{quote}
+
+\emph{Proof of necessity.} $M = L \oplus  \langle -n\rangle  \subseteq  \Lambda (\Gamma )$, so every vector of $M$ has even norm. $\blacksquare $
+
+\begin{quote}\textbf{The converse does NOT hold:} the parity of the overlattice is read off from the norms of the \textbf{glue vectors} $mod 2\mathbb{Z}$, not from the parity of the summands. Witness --- our own pair from \S{}3.4: the \textbf{even} $M = A_{1}^{3}\oplus \langle -2\rangle $ glues along one class into the \textbf{even} $A_{1}^{2}\oplus U$, and along another into the \textbf{odd} $\operatorname{diag}(1,1,2,-2)$. This is exactly why parity entered the criterion's data as a separate condition \textbf{(T2)}, rather than as a consequence of the summands' parity.\end{quote}
+
+\begin{longtable}{p{0.23\linewidth} p{0.23\linewidth} p{0.23\linewidth} p{0.23\linewidth}}
+\toprule
+\textbf{lattice} & \textbf{\textbf{discriminant form}} & \textbf{\textbf{parity}} & \textbf{ambient} \\
+\midrule\endhead
+$E_{8} \oplus  \langle 2\rangle $ & $\mathbb{Z}/2$, $b = \tfrac{1}{2}$ & \textbf{even} & only $II_{9,1}$ \\
+$I_{8} \oplus  \langle 2\rangle $ & $\mathbb{Z}/2$, $b = \tfrac{1}{2}$ --- \textbf{the same} & \textbf{odd} & $I_{9,1}$ \\
+\bottomrule
+\end{longtable}
+
+$\Longrightarrow $ the discriminant form \textbf{does not determine} the ambient; an extra \textbf{bit} is needed. Hence the boundary of $P6.Thm1(7)$ \textbf{IS EXACT}, not conservative.
+
+\subsection*{Remark 2 --- the case $p = 3$}
+
+\begin{quote}\textbf{$II_{3,1}$ does not exist}, so for $p = 3$ the even branch is empty, the rider cannot fire, and the condition $\langle 1/n\rangle $ \textbf{is sufficient}.\end{quote}
+
+\emph{Proof.} An even unimodular indefinite lattice exists $\Longleftrightarrow $ $sig \equiv  0 (mod 8)$; for (3,1) $sig = 2 \not\equiv  0$. $\blacksquare $ \bookmark{} \textbf{the classification of indefinite even unimodular [lattices]} --- the named leg of this remark.
+
+
+\textbf{Positively and exactly:} the boundary of the condition $\langle 1/n\rangle $ \textbf{does not touch} the case $p = 3$, so the printed result of preprint-6 \textbf{stands as is}; this work merely outlined its scope from outside.
+
+
+\section*{\S{}6 $\cdot $ P7.Cor3 --- the form is necessary}
+
+\begin{quote}\textbf{P7.Cor3.} The order-only version of the criterion ($|disc(L)|\cdot n = |disc(\Lambda _W)|\cdot index^{2}$) \textbf{is insufficient}.\end{quote}
+
+The ambient is given explicitly, it is $4\times 4$ diagonal \textbf{and is itself the witness}:
+\begin{quote}\ttfamily\small\obeylines
+        $\Lambda$\_W = diag(1, 1, 2, $-$2) ,   |disc| = 4 ,   signature (3,1)
+        disc($\Lambda$\_W) = $\mathbb{Z}$/2 $\times $ $\mathbb{Z}$/2 ,   form b = \{0, 0, $\tfrac{1}{2}$, $\tfrac{1}{2}$\}
+\end{quote}
+
+\begin{longtable}{p{0.16\linewidth} p{0.16\linewidth} p{0.16\linewidth} p{0.16\linewidth} p{0.16\linewidth} p{0.16\linewidth}}
+\toprule
+\textbf{$t^{2}$} & \textbf{`\textbackslash\{\}} & \textbf{disc(L)\textbackslash\{\}} & \textbf{`} & \textbf{$index^{2}$} & \textbf{gluing arithmetic} \\
+\midrule\endhead
+$-$1 & 4 & 1 & $\checkmark$ &  &  \\
+$-$2 & 2 & 1 & $\checkmark$ &  &  \\
+$-$3 & 12 & 9 & $\checkmark$ &  &  \\
+$-$4 & 16 & 16 & $\checkmark$ &  &  \\
+\bottomrule
+\end{longtable}
+
+\textbf{The gluing arithmetic passes on ALL four --- and precisely because of that it decides nothing.} The form distinguishes: $\mathbb{Z}/4$ and $\mathbb{Z}/2\times \mathbb{Z}/2$ have the same order 4, but \textbf{are not isometric}; $disc(\Lambda _W)$ coincides precisely with $\mathbb{Z}/2\times \mathbb{Z}/2$.
+
+\textbf{The cost of the omission:} without the words "as a form" \textbf{P7.Thm1 is false} --- it becomes a statement about order and fails at the first non-cyclic discriminant. The corollary that saves the theorem from falsity must say this about itself.
+
+
+\section*{\S{}7 $\cdot $ P7.Thm2 --- cost: the law and the closed formula}
+
+\subsection*{\S{}7.1 $\cdot $ The law}
+
+\begin{quote}\#\#\# \textbf{P7.Thm2(a) --- the cost depends ONLY on the bilinear discriminant form of $L$.} If $b_{L_{1}} \cong  b_{L_{2}}$ (with the same rank and signature), then $cost(L_{1}) = cost(L_{2})$. \textbf{Corollary (citable form):} the cost is a \textbf{genus invariant} of $L$ --- the genus determines the discriminant form. Invariance by genus is \textbf{strictly weaker}: the witness of \S{}7.2(i) has the same cost for \textbf{different} genera.\end{quote}
+
+\begin{quote}\textbf{Order of proof: (a) is derived from (b), not from Thm1.} This is not a matter of style. After the repair the data of Thm1 contains \textbf{parity (T2)}, so the phrase "the criterion is expressed purely in discriminant data" can \textbf{no longer} be taken as a premise --- it has ceased to be exact. Instead, \textbf{the closed formula of \S{}7.3 demonstrably consumes only $b$}: neither parity nor the Gram matrix enters it. So (a) is proved \textbf{after} (b) and \textbf{from} (b) --- constructively, not rhetorically.\end{quote}
+
+\textbf{(Thm2.1)} The formula of P7.Thm2(b) is expressed via $|disc(L)|$, $exp(disc L)$, and the values of $b_L$ on the elements of $disc(L)$ --- that is, \textbf{exclusively} via $b$ as a form; neither the Gram matrix nor parity enters it. Isometric $b$ give the same value of the formula, and the formula equals the cost $\Longrightarrow $ $cost$ is a function of $b$. $\blacksquare $ \textbf{(Thm2.2)} The genus determines the signature and the discriminant form $\Longrightarrow $ on the genus the cost is constant --- a \textbf{genus invariant}. $\blacksquare $
+
+\begin{quote}\textbf{Why there is no import here.} Previously this step relied on "signature + discriminant form \textbf{is} the genus" (\bookmark{} Nikulin). This reference is both \textbf{unnecessary} and \textbf{too narrow}: only the trivial direction is needed (genus $\Longrightarrow $ discriminant form), while the converse for \textbf{odd} lattices with a \textbf{bilinear} form is \textbf{false} --- our own witness from \S{}5 ($E_{8}\oplus \langle 2\rangle $ and $I_{8}\oplus \langle 2\rangle $: the same bilinear discriminant form, different genera). Nikulin's theorem is formulated for \textbf{even} lattices and a \textbf{quadratic} form; we do not stretch it beyond its scope (\S{}10).\end{quote}
+
+\begin{quote}\textbf{Why parity (T2) does not affect the cost --- and this is visible from the definition, not from hope.} $P7.Def5$ minimises over \textbf{all} ambients, not over ambients of a prescribed parity: every admissible gluing gives \textbf{some} integral overlattice (3,1), and it is itself a witness. So the added condition (T2), which distinguishes ambients from one another, \textbf{does not shift} the minimum. The witness of \S{}7.2(i) shows this directly: the pair differs precisely in parity and both have cost $1$. $\Longrightarrow $ \textbf{the cost half of the work (\S{}7--\S{}8) does not move under the repair of Thm1}, and it has zero imports: neither Eichler, nor genus.\end{quote}
+
+\subsection*{\S{}7.2 $\cdot $ Two different statements --- two different witnesses}
+
+\textbf{(i) The cost is determined by the discriminant form --- and it does NOT see either class or genus.} Witness: \textbf{the same discriminant form, the same cost, different lattices --- even different genera.} Here Gram matrices are mandatory ($3\times 3$, one pair) --- the dispute is precisely \textbf{about the representative}:
+\begin{quote}\ttfamily\small\obeylines
+   diag(1,1,6)   [[1,0,0],[0,1,0],[0,0,6]]    |Aut| 16   ODD       disc $\mathbb{Z}$/6, b(g,g) = 1/6   cost 1
+   A$_{2}$ $\oplus $ $\langle$2$\rangle$      [[2,$-$1,0],[$-$1,2,0],[0,0,2]]  |Aut| 24   EVEN      disc $\mathbb{Z}$/6, b(g,g) = 1/6   cost 1
+\end{quote}
+$|Aut|$ 16 $\neq $ 24 $\Longrightarrow $ \textbf{not isometric}. Moreover: $\operatorname{diag}(1,1,6)$ is \textbf{odd} ($e_{1}^{2} = 1$), while $A_{2}\oplus \langle 2\rangle $ is \textbf{even} (the entire Gram diagonal is even), and parity is a genus invariant $\Longrightarrow $ these two lattices lie in \textbf{different genera}. The same discriminant form $\Longrightarrow $ \textbf{the same cost} despite this.
+
+\begin{quote}\textbf{The witness proves more than "a genus invariant".} The weaker version ("one genus, two classes") would have been a special case of this one. The variable on which the cost depends is the \textbf{discriminant form}; the genus would be a superfluous intermediary that, moreover, does not even coincide here.\end{quote}
+
+\textbf{(ii) The cost is NOT an invariant of the Bravais TYPE} --- the witness is \textbf{opposite in form}: the same \textbf{type}, \textbf{different} costs --- $A_{2}\oplus \langle 2\rangle $ (hexagonal) $\to $ 1 versus the row $hP$ (hexagonal) $\to $ 3.
+
+\begin{quote}\textbf{Why (i) does not prove (ii):} equal cost for two lattices says that the cost does not see \textbf{class} or \textbf{genus}, and says nothing about \textbf{type}. Only a divergence \textbf{within} a type can refute invariance of type.\end{quote}
+
+\subsection*{\S{}7.3 $\cdot $ The closed formula}
+
+\begin{quote}\textbf{P7.Thm2(b).} $cost(L) = min { |disc(L)| \cdot  n_min(m)/m^{2} : m \in  D(L) }$, with $D(L)$, $n_min$ as per P7.Def6.\end{quote}
+
+\textbf{Step 1 --- FINITENESS} \emph{(as a separate and first step: it is precisely this that makes the expression a theorem, not a search)}
+
+\textbf{(Thm2.3)} $\Gamma $ projects into $disc(L)$ injectively (Thm1.3) $\Longrightarrow $ \textbf{$\Gamma $ is isomorphic to a subgroup of $disc(L)$}. \textbf{(Thm2.4)} $\Longrightarrow $ $m := |\Gamma |$ divides $|disc(L)|$ (Lagrange), and \textbf{more precisely} $m | exp(disc L)$, because $H_L$ is cyclic --- this is (Thm2.7) below, and it is proved \textbf{independently} of this step, so there is no circularity. The divisors are \textbf{always} finite in number. \textbf{(Thm2.5)} The set in the definition of $j_min(m)$ is \textbf{non-empty}, and $j_min(m) \leq  m$. Indeed: $m \in  D(L)$ guarantees the existence of $x$ of order $m$; at $k = 1$ the condition reads as $j \equiv  A (mod m)$, where $A := b_L(x,x)\cdot m mod m$ is an integer, because $ord(x) = m$. The class $j mod m$ has a representative in ${1, \dots , m}$ (at $A = 0$ this is $j = m$) $\Longrightarrow $ the set is non-empty and the minimum is $\leq  m$. Finite. \textbf{(Thm2.6)} There are \textbf{infinitely many} admissible pairs $(m, n)$: for a fixed $m$ the congruence of P7.Def6 admits \textbf{the entire residue class} $j mod m$, and with it arbitrarily large $n = m\cdot j$. The finiteness lives not in the pairs, but in the minimisation: the target quantity `|disc(L)|$\cdot $n/m$^{2}$ =
+\begin{longtable}{p{0.47\linewidth} p{0.47\linewidth}}
+\toprule
+\textbf{disc(L)} & \textbf{$\cdot $j/m$ \textbf{strictly increases in $j$} for fixed $m`, so the minimum over the class is attained at} \\
+\midrule\endhead
+\bottomrule
+\end{longtable}
+$j_min(m)$ (non-empty and $\leq  m$ --- Thm2.5), and $m$ ranges over the finite $D(L)$ (Thm2.4) $\Longrightarrow $ the minimisation reduces to the finite set ${(m, m\cdot j_min(m)) : m \in  D(L)}$; the minimum exists, is attained, \textbf{without any search bound $D_max$}. $\blacksquare $
+
+\begin{quote}\textbf{The formula is truncation-stable by construction} --- not because the search bound $D_max$ is taken sufficiently large, but because there \textbf{is no bound in it at all} ($D(L)$ from P7.Def6 is the set of divisors of $exp(disc L)$, a structural object, not a truncation parameter).\end{quote}
+
+\textbf{Step 2 --- the expression counts exactly what is needed}
+
+\textbf{(Thm2.7)} \textbf{Cyclicity is a consequence, not a convenient special case:} $H_t \subseteq  \mathbb{Z}/n$ is \textbf{always} cyclic; $\gamma $ an isomorphism $\Longrightarrow $ $H_L$ is \textbf{forced} to be cyclic. Hence a single $m$ and a single generator suffice \textbf{by structure}.
+\begin{quote}\textbf{Removes the apparent contradiction with \S{}6:} $disc(L)$ \textbf{can} be non-cyclic (that is precisely what \S{}6 is about); what is cyclic is the \textbf{glue subgroup}, not the disc.\end{quote}
+
+\textbf{(Thm2.7$'$) --- the scalar congruence of Def6 is equivalent to the FULL anti-isometry.} Separately, because $Def6$ operates on \textbf{a single number} $b_L(x,x)$, whereas $Def2$ requires equality of the forms on \textbf{all} pairs. For cyclic $H_L = \langle x\rangle $, $H_t = \langle y\rangle $ and $\gamma (x) = k\cdot y$, bilinearity gives $b(ax, bx) = ab\cdot b(x,x)$, so
+\begin{quote}\ttfamily\small\obeylines
+   b\_t($\gamma $(ax), $\gamma $(bx)) = ab$\cdot $k$^{2}$$\cdot $b\_t(y,y)   and   $-$b\_L(ax, bx) = $-$ab$\cdot $b\_L(x,x)
+\end{quote}
+for all $a, b$ $\Longleftrightarrow $ $k^{2}\cdot b_t(y,y) = -b_L(x,x)$ --- \textbf{one} equality on the generators. The value of the form on the generator determines it on the entire cyclic subgroup; hence the scalar condition $Def6$ is no weaker than $Def2$. (Cyclicity is not an assumption, but (Thm2.7).)
+
+Next --- the only place with genuine arithmetic: $y = (n/m)\cdot g$ gives $b_t(y,y) = -n/m^{2}$, and with $n = m\cdot j$ and multiplication by $m$:
+\begin{quote}\ttfamily\small\obeylines
+        j $\cdot $ k$^{2}$ $\equiv $ b\_L(x,x) $\cdot $ m   (mod m)
+\end{quote}
+hence $j$ ranges over \textbf{quadratic shifts by units $k$}, and $j_min$ is a question about \textbf{quadratic residues mod $m$}.
+
+\textbf{(Thm2.8)} The gluing arithmetic gives $|\det  \Lambda _W| = |disc L|\cdot n/m^{2}$; minimisation over $(m,n)$ is precisely the expression.
+
+\textbf{(Thm2.9) --- a candidate from $Def6$ gives precisely an ambient ADMISSIBLE under $Def5$.} The step is spelled out in full, because $Def5$ minimises \textbf{not} over integral overlattices in general, but over those where $L$ is a \textbf{primitive timelike section}:
+
+\begin{quote}\ttfamily\small\obeylines
+   admissible gluing (m, j, k)
+   $\Longrightarrow $ $\Gamma$ = graph($\gamma $), $\gamma $ : H\_L $\to $ H\_t isomorphism             (Thm2.7$'$)
+   $\Longrightarrow $ both projections $\Gamma$ $\to $ disc(L), $\Gamma$ $\to $ disc($\langle$$-$n$\rangle$)
+      are injective --- automatically, because it is the graph of an ISOMORPHISM
+   $\Longrightarrow $ $\langle$t$\rangle$ primitive, L primitive                          (Thm1.10)
+   $\Longrightarrow $ L = t\textasciicircum{}$\perp $ $\cap$ $\Lambda$ : primitivity of L gives L = (L$\otimes$$\mathbb{Q}$) $\cap$ $\Lambda$,
+      and L$\otimes$$\mathbb{Q}$ = t\textasciicircum{}$\perp $$\otimes$$\mathbb{Q}$                                    (P7.Def4)
+   $\Longrightarrow $ $\Lambda$ is an admissible ambient under P7.Def5
+\end{quote}
+Plus $\Gamma $ is isotropic under P7.Def3 $\Longrightarrow $ $\Lambda $ is \textbf{integral}, of signature (3,1) (Thm1.7, Thm1.8). $\Longrightarrow $ \textbf{the formula = the criterion, no wider}: every member of it is realised, and no realisable ambient falls out from under it. $\blacksquare $
+
+\subsection*{\S{}7.4 $\cdot $ Table of values}
+
+\begin{quote}\textbf{Indexed by the INPUT of the formula --- the discriminant FORM, not the Bravais type and not the order of the disc.} The table of values must be ordered by what the value depends on. Type is a \textbf{label of the chosen representative}. \textbf{The group of the disc is NOT an input.} The $b$ column is in the table precisely for this reason: without it the row "$\mathbb{Z}/6$ $\to $ 2" would contradict the pair of \S{}7.2 ("$\mathbb{Z}/6$ $\to $ 1"), even though both numbers are correct --- these are \textbf{two different forms on the same group}.\end{quote}
+
+\begin{longtable}{p{0.12\linewidth} p{0.12\linewidth} p{0.12\linewidth} p{0.12\linewidth} p{0.12\linewidth} p{0.12\linewidth} p{0.12\linewidth} p{0.12\linewidth}}
+\toprule
+\textbf{$disc(L)$ --- group} & \textbf{`\textbackslash\{\}} & \textbf{disc\textbackslash\{\}} & \textbf{`} & \textbf{$b(x,x)$ on the generator of the gluing} & \textbf{\textbf{cost}} & \textbf{witness $(n, m)$} & \textbf{\emph{representative label}} \\
+\midrule\endhead
+$0$ & 1 & --- & \textbf{1} & (1, 1) & \emph{cP} &  &  \\
+$\mathbb{Z}/2$ & 2 & $1/2$ & \textbf{1} & (2, 2) & \emph{tP} &  &  \\
+$\mathbb{Z}/4$ & 4 & $3/4$ & \textbf{3} & (12, 4) & \emph{cF} "FCC" &  &  \\
+$\mathbb{Z}/6$ & 6 & $1/3$ & \textbf{2} & (3, 3) & \emph{oP} &  &  \\
+$\mathbb{Z}/8$ & 8 & $1/2$ & \textbf{4} & (8, 4) & \emph{tI} &  &  \\
+$\mathbb{Z}/3 \times  \mathbb{Z}/3$ & 9 & $1/3$ & \textbf{3} & (3, 3) & \emph{hP} &  &  \\
+$\mathbb{Z}/4 \times  \mathbb{Z}/4$ & 16 & $1/2$ & \textbf{8} & (8, 4) & \emph{cI} "BCC" &  &  \\
+$\mathbb{Z}/2 \times  \mathbb{Z}/8$ & 16 & $3/8$ & \textbf{6} & (24, 8) & \emph{oC} &  &  \\
+$\mathbb{Z}/2 \times  \mathbb{Z}/10$ & 20 & $2/5$ & \textbf{8} & (10, 5) & \emph{hR} &  &  \\
+$\mathbb{Z}/24$ & 24 & $1/8$ & \textbf{3} & (8, 8) & \emph{oF} &  &  \\
+$\mathbb{Z}/2 \times  \mathbb{Z}/14$ & 28 & $3/14$ & \textbf{6} & (42, 14) & \emph{mC} &  &  \\
+$\mathbb{Z}/51$ & 51 & $1/17$ & \textbf{3} & (17, 17) & \emph{aP} &  &  \\
+$\mathbb{Z}/69$ & 69 & $2/69$ & \textbf{2} & (138, 69) & \emph{mP} &  &  \\
+$\mathbb{Z}/2 \times  \mathbb{Z}/2 \times  \mathbb{Z}/24$ & 96 & $5/24$ & \textbf{20} & (120, 24) & \emph{oI} &  &  \\
+\bottomrule
+\end{longtable}
+
+\begin{quote}\textbf{How to read the $b$ column.} This is the value on the generator of the \textbf{glue subgroup} (an element of order $m$) --- it is exactly this that enters the congruence $j\cdot k^{2} \equiv  b\cdot m (mod m)$. The value on the generator of the \textbf{whole} disc can be different: for the row \emph{oP} $b(g,g) = 5/6$ on the generator of $\mathbb{Z}/6$, whereas the table shows $1/3$ --- the value on $x = 2g$ of order 3. \textbf{Every displayed witness can be checked from its row:} $j = n/m$, $cost = |disc|\cdot n/m^{2}$; for \textbf{non-cyclic} forms the independent check of \textbf{minimality} requires the full discriminant form --- supplementary \textbf{S2} ([$supplementary/S2_discriminant_form_grams.md$](supplementary/S2\_discriminant\_form\_grams.md)). \textbf{Two forms on $\mathbb{Z}/6$ that justify this column:} $b(g,g) = 5/6$ (row \emph{oP}) gives cost 2; $b(g,g) = 1/6$ (the pair of \S{}7.2) gives cost 1. One group, different costs --- because the forms differ.\end{quote}
+
+\emph{(The table --- values of the formula, by a single method; representatives validated by $|Aut|$, 14/14; Gram matrices --- supplementary.)} For \textbf{non-cyclic} $disc(L)$ the $b$ column gives the value only on the generator of the gluing, not the whole form: the row verifies the \textbf{upper bound} of the cost, while minimality is with respect to the full discriminant form; the full Gram matrices of the discriminant forms of all six non-cyclic rows --- supplementary \textbf{S2} ([$supplementary/S2_discriminant_form_grams.md$](supplementary/S2\_discriminant\_form\_grams.md)).
+
+\textbf{Two things become visible that a table by types was hiding:} \textbf{(i)} at the same order the form distinguishes: $\mathbb{Z}/4\times \mathbb{Z}/4$ $\to $ 8 versus $\mathbb{Z}/2\times \mathbb{Z}/8$ $\to $ 6; \textbf{(ii)} \textbf{the cost is NOT monotone in $|disc|$} --- $\mathbb{Z}/69$ $\to $ 2, $\mathbb{Z}/4$ $\to $ 3, $\mathbb{Z}/8$ $\to $ 4: a larger disc can be \textbf{cheaper}. $\Longrightarrow $ \textbf{no "size leads" whatsoever}; the cost is a function of the discriminant form, and only that.
+
+
+
+\section*{\S{}8 $\cdot $ P7.Cor4 --- centring addresses}
+
+\begin{quote}\textbf{P7.Cor4.} \textbf{FCC --- $cost = 3$}, \textbf{BCC --- $cost = 8$}; both unattainable on the unimodular stratum, but with \textbf{different} addresses, and the difference is explained by the \textbf{discriminant form}.\end{quote}
+
+\subsection*{Table 1 --- the blocking mechanism: three lines, not one}
+
+For FCC $disc = \mathbb{Z}/4$, $b = 3/4$; the admissible $m \in  {1, 2, 4}$, and $d = |disc|\cdot j/m$ with $j\cdot k^{2} \equiv  b\cdot m (mod m)$.
+
+\begin{longtable}{p{0.19\linewidth} p{0.19\linewidth} p{0.19\linewidth} p{0.19\linewidth} p{0.19\linewidth}}
+\toprule
+\textbf{`d = \textbackslash\{\}} & \textbf{det $\Lambda$\_W\textbackslash\{\}} & \textbf{`} & \textbf{status} & \textbf{what exactly blocks it} \\
+\midrule\endhead
+\textbf{d = 1} & blocked & requires $k^{2} \equiv  3 (mod 4)$, but squares mod 4 are ${0,1}$: \textbf{quadratic residue} &  &  \\
+\textbf{d = 2} & blocked & both routes fall on \textbf{congruences modulo 2}: $m = 2$ gives $1 \not\equiv  0 (mod 2)$, $m = 4$ gives $2k^{2} \equiv  3 (mod 4)$ --- an even number against an odd one &  &  \\
+\textbf{d = 3} & \textbf{blocked by nothing} & it \textbf{is} the minimum itself --- the overlattice is explicit, `\textbackslash\{\} & det\textbackslash\{\} & = 3$, (3,1), $(n,m) = (12,4)` \\
+\bottomrule
+\end{longtable}
+
+\begin{quote}\textbf{On the word "parity" in the row $d = 2$.} Here it is the \textbf{parity of integers} in the congruence at issue, \textbf{not} the parity of the lattice (type I/II) from condition \textbf{(T2)}. The homonym is named: after \S{}3 "parity" in this work is a load-bearing word, and in Table 1 it means \textbf{something else}. "\textbf{Form} blocks, not order" --- a conclusion from three lines, not a substitute for them.\end{quote}
+
+\begin{quote}\textbf{The status of the number $8$ for BCC --- so that two levels are not read as one.} $cost(BCC) = 8$ is obtained \textbf{abstractly}: the formula P7.Thm2(b) computes the cost from the $b$ of $L$ itself, and the realisability of each term is automatic (Thm2.9). It \textbf{does not depend} on the open item of \S{}11 --- that concerns the \textbf{full isometry} $\Gamma ^\perp /\Gamma $ for BCC, i.e. the \textbf{identification of the specific ambient}, not the value of the cost. The cost answers "how expensive", the identification "which one exactly"; the latter remains open.\end{quote}
+
+This is the \textbf{native reason} for excluding FCC from the unimodular stratum: earlier it stood as an \textbf{observed obstruction}, now it is \textbf{derived} from the criterion. The \textbf{asymmetry $3 < 8$} is explained by \textbf{different forms} --- and \textbf{not} by monotonicity in size (\S{}7.4).
+
+
+\section*{\S{}9 $\cdot $ Measured alongside: $cost$ and $n_min$ --- not one scale}
+
+Is the "ambient cost" not another expression for $n_min$ (P6)? \textbf{No:}
+
+\begin{quote}\ttfamily\small\obeylines
+        Spearman( n\_min , cost )  $\approx$  0.78     on one set of representatives
+        Spearman( n\_min , cost )  $\approx$  0.36     on an alternative set
+\end{quote}
+
+The coefficient depends on the chosen set of representatives and is not cited as a value.
+
+\textbf{Conclusion --- as two separate statements, each with its own witness} (one is not proved without the other: two order reversals \textbf{do not} refute a functional dependence --- a function can perfectly well have $f(43) = 3$, $f(13) = 8$):
+
+\textbf{(i) The order is not consistent (non-monotonicity):}
+\begin{verbatim}
+        triclinic       n_min = 43 ,  cost = 3
+        rhombohedral    n_min = 13 ,  cost = 8
+\end{verbatim}
+a larger $n_min$ --- a smaller cost; it is exactly this (and only this) that $Spearman < 1$ reflects.
+
+\textbf{(ii) $cost$ is not a function of $n_min$ --- a collision:} $n_min$ is an invariant of \textbf{holohedry} (P6), while the cost is not: both lattices of the pair in \S{}7.2(ii) are hexagonal, i.e. they have \textbf{the same} holohedry and $n_min = 6$, but costs \textbf{1} ($A_{2}\oplus \langle 2\rangle $) and \textbf{3} (the \emph{hP} row). The same argument, different values --- there is no function.
+
+
+
+\section*{\S{}10 $\cdot $ Relation to prior work and sources}
+
+\begin{longtable}{p{0.47\linewidth} p{0.47\linewidth}}
+\toprule
+\textbf{mechanism} & \textbf{source} \\
+\midrule\endhead
+the terminology of gluing (glue group / glue vectors); the discriminant-form theory of the \textbf{even} case (the identity $disc(\Lambda ) \cong  \Gamma ^\perp /\Gamma $ for the odd case is proved in this work --- \textbf{P7.Lem1}) & \textbf{V. V. Nikulin}, \emph{Integral symmetric bilinear forms and some of their applications}, Izv. Akad. Nauk SSSR \textbf{43} (1979); English transl. Math. USSR Izv. \textbf{14} (1980) --- \S{}1.5, \S{}1.5.1. \textbf{J. H. Conway, N. J. A. Sloane}, \emph{Sphere Packings, Lattices and Groups}, 3rd ed., Springer 1999 --- \textbf{Ch. 4} \\
+class = spinor genus for \textbf{indefinite} forms of \textbf{rank $\geq $ 3} & \textbf{M. Eichler}, \emph{Quadratische Formen und orthogonale Gruppen}, Springer 1952. \textbf{M. Kneser}, \emph{Klassenzahlen indefiniter quadratischer Formen\dots{}}, Arch. Math. \textbf{7} (1956). Modern exposition: \textbf{J. W. S. Cassels}, \emph{Rational Quadratic Forms}, Academic Press 1978 --- \textbf{Ch. 11}; \textbf{O. T. O'Meara}, \emph{Introduction to Quadratic Forms}, Springer --- \textbf{\S{}102} \\
+one spinor genus in the genus for small `\textbackslash\{\} & det\textbackslash\{\} \\
+correctness of the Conway--Sloane calculus for 2-adic lattices (the first published proof; \textbf{\S{}6 --- the correction of the false CS canonical form}, following Allcock, Memoirs AMS 220; it carries the merging of \S{}3.5: Lemma 5.2, Lemma 6.1, Theorem 6.2) & \textbf{D. Allcock, I. Gal, A. Mark}, \emph{The Conway--Sloane calculus for 2-adic lattices}, $arXiv:1511.04614$ \\
+\textbf{indefinite} even unimodular ($sig \equiv  0 mod 8$); classification of the odd ones & \textbf{J.-P. Serre}, \emph{A Course in Arithmetic}, GTM 7 --- \textbf{Ch. V}. \textbf{J. Milnor, D. Husemoller}, \emph{Symmetric Bilinear Forms}, Springer 1973 --- \textbf{Ch. II \S{}5} \\
+the Milgram formula ($\sigma $ of the discriminant form $mod 8$); exclusion of the even competitor & \textbf{Milnor--Husemoller}, \emph{Symmetric Bilinear Forms} --- \textbf{Appendix}; \textbf{SPLAG} --- formula \textbf{(30)} \\
+existence conditions for p-adic symbols --- the load-bearing step of \textbf{P7.Prop1} (\S{}3.5); the "canonical form" of \S{}7.6 is \textbf{not used} in the steps: its uniqueness is false in general (see the AGM row) & \textbf{Conway--Sloane}, SPLAG 3rd ed. --- \textbf{Ch. 15, \S{}7.7} (Theorems 10, 11) \\
+genus symbols (for reference; Nikulin's existence theorems \S{}1.9/\S{}1.11 --- the even case, \textbf{not used} in the steps of this work: all ambients and overlattices are built explicitly) & \textbf{Nikulin} \S{}1.9, \S{}1.11 \\
+the crystallographic restriction in rank 3 \emph{(historical note)} & 19th-century classic; modern expositions --- \textbf{W. Scherrer} (1946), \textbf{H. S. M. Coxeter}, \emph{Introduction to Geometry} (1969) \\
+\bottomrule
+\end{longtable}
+
+\begin{quote}\textbf{THE SCOPE LINE, WITHOUT WHICH THE REFERENCE TO NIKULIN READS WIDER THAN IT IS.} Nikulin's discriminant-form theory is formulated for \textbf{EVEN} lattices. \textbf{Our case is odd} --- and it works \textbf{natively}, because the whole criterion is built from the outset on the \textbf{bilinear} discriminant form $b mod \mathbb{Z}$ ($P7.Def1$), not on the quadratic $q mod 2\mathbb{Z}$, which is defined only for even lattices. $\Longrightarrow $ we do \textbf{not} apply Nikulin's result outside its scope: from there we take the \textbf{terminology of gluing and the identity $disc(\Lambda ) \cong  \Gamma ^\perp /\Gamma $}, while the odd case carries its own construction. The price of this choice --- that the bilinear form does not see parity --- is paid explicitly: the bit sits in the data of the criterion \textbf{(T2)}, and is not hidden in the import.\end{quote}
+
+\textbf{Theorem numbers are given only where checked against the edition; otherwise --- the chapter or section.}
+
+\textbf{What is genuinely this work's own:}
+
+\begin{enumerate}
+\item \textbf{the criterion relative to a fixed ambient} with $\Gamma ^\perp /\Gamma  \cong  disc(\Lambda _W)$ \textbf{as a form} and with \textbf{parity} in the data (the odd case);
+\item \textbf{folding back}: $disc = 0$ reproduces the $\langle 1/n\rangle $ condition of preprint-6;
+\item \textbf{the cost as an invariant of the discriminant form} plus a \textbf{closed formula} with a finite range --- \textbf{without a search parameter};
+\item \textbf{the addresses of the centrings} with the blocking mechanism separated out (Table 1).
+\end{enumerate}
+
+
+\section*{\S{}11 $\cdot $ Limits and the open}
+
+\subsection*{(a) Open}
+
+\begin{longtable}{p{0.47\linewidth} p{0.47\linewidth}}
+\toprule
+\textbf{question} & \textbf{status} \\
+\midrule\endhead
+\textbf{characterisation of (T0)-lattices} --- for which $\Lambda _W$ the triple "signature + $b$ + parity" determines the genus in \textbf{general} form & open for arbitrary $\det $ and rank $\neq $ 4; for rank 4, sig (3,1), `\textbackslash\{\} \\
+\textasciitilde{}\textasciitilde{}the lemma "no even competitor"\textasciitilde{}\textasciitilde{} & \textbf{closed} --- written out as the table of \S{}3.4 ($\sigma  mod 8$, all refinements of $q$, the enumeration is complete) \\
+\textbf{the full form of $\Gamma ^\perp /\Gamma $ for BCC} & the order and factors are computed; the full isometry has not been done. \textbf{This does not concern the cost} --- $cost(BCC) = 8$ is abstract (\S{}8) \\
+\textbf{$\gamma $-freedom for a non-cyclic disc} & open \textbf{without a source} \\
+\textbf{a simpler form of $j_min(m)$} & possibly via quadratic residues / CRT \\
+\textbf{the cost as an invariant of TYPE} & \textbf{closed negatively} --- witness \S{}7.2(ii): the same type, different costs \\
+\bottomrule
+\end{longtable}
+
+\begin{quote}\textbf{A bridging line} (because $A_{2}\oplus \langle 2\rangle $ works twice): \textbf{there, the same discriminant form --- the same cost even with different genera; here, the same TYPE --- a different cost. This is exactly what shows that the discriminant form is the variable.}\end{quote}
+
+\subsection*{(b) Parking, said out loud}
+
+The sample $n \leq  4$ does not even reproduce the \textbf{known} unimodular image (it gives ${tetragonal, cubic}$ instead of seven; $triclinic$ requires $n = 43$) $\Longrightarrow $ a "by genus" difference on it would be a \textbf{truncation artefact}. Fincke--Pohst up to $n = 43$ with a budget is needed.
+
+\subsection*{(c) On method: why the theorem has no search bound}
+
+\textbf{A bounded search (limit $D_max = 40$) gave inflated cost values --- three times.} The reason is each time the same: for large discriminants the optimal $m$ is large, $n = d\cdot m^{2}/|disc|$ jumps past the limit, the row \textbf{drops out of the enumeration}. \emph{(Notation: $D_max$ is the truncation limit of the old search; it has nothing in common with the set of divisors $D(L)$ in P7.Def6.)}
+
+\textbf{The finiteness step (Thm2.3--Thm2.6) exists precisely so that the theorem has no search bound at all.} $m | exp(disc L)$ is a \textbf{structural} condition, not a computational one. \textbf{Conclusion of the method: a named structure is not verified by scanning} --- if a problem is finite by structure, this must be \textbf{used}, not approximated by a bound.
+
+\subsection*{(d) What is not our result}
+
+\textbf{The window (quasiperiodicity) is a separate input, not a consequence of the criterion.} Finite-order integer isometries of $I_{3,1}$ have orders from ${1,2,3,4,6}$: axes of orders \textbf{5, 8, 12} do not preserve (3,1) --- \textbf{measured}; order \textbf{10} is excluded as a consequence (its square has order 5) --- \textbf{derived}. A detailed treatment is not part of this work.
+
+\begin{quote}This is a statement about \textbf{scope}, not a promise: it says \textbf{what is absent}, without "later we will show".\end{quote}
+
+\end{document}

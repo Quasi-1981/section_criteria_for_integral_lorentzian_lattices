@@ -1,0 +1,41 @@
+{
+  "title": "Section Criteria for Integral Lorentzian Lattices and the Cost of Realization (Geometry of the vacuum, floor 0)",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "description": "For an integral lattice of signature (3,1) and a positive definite integral lattice L of rank 3, a criterion is given for L to be a primitive timelike section by a primitive vector of norm -n. The criterion runs on three data -- signature, bilinear discriminant form and parity (type I/II) -- and states that such a section exists if and only if there is an anti-isometry of glue subgroups whose graph satisfies an isometry of discriminant forms and whose glued overlattice has the same parity as the ambient. Both requirements are shown to be load-bearing: the order-only version of the first fails at the first non-cyclic discriminant, and without the second the statement is false, with an explicit counterexample on diag(1,1,2,-2). The reverse implication rests on two checkable conditions, (T0) that the named data determine the genus of the ambient and (T0c) that this genus contains one class; for rank 4, signature (3,1) and |det| <= 4 both are proved -- (T0) by a complete enumeration of genera (exactly seven, with the triple of data separating them pairwise), (T0c) by Eichler's theorem with a margin of 5^6. Substituting a trivial discriminant returns the unimodular condition <1/n> of the preceding paper, and a parity rider shows that boundary to be sharp. From the criterion the minimal ambient discriminant -- the cost of a lattice -- is shown to depend only on the bilinear discriminant form, hence to be a genus invariant, and a closed expression for it is given whose range is finite by structure rather than by a search bound. Evaluated on fourteen representatives the expression gives a table of costs indexed by the discriminant form, not by Bravais type: cost is neither a type invariant nor monotone in the order of the discriminant. The cubic centrings obtain exact addresses, FCC = 3 and BCC = 8, and the blocking of lower values for FCC splits into two distinct congruence mechanisms. No physical reading of any object is made anywhere in the work.",
+  "license": "CC-BY-4.0",
+  "version": "1.0.0",
+  "language": "eng",
+  "keywords": [
+    "integral lattice",
+    "signature (3,1)",
+    "primitive timelike section",
+    "discriminant form",
+    "glue group",
+    "genus of a quadratic form",
+    "spinor genus",
+    "2-adic symbol",
+    "oddity formula",
+    "Milgram formula",
+    "Bravais type"
+  ],
+  "creators": [
+    {
+      "name": "Sobol, Vladimir",
+      "affiliation": "Independent Researcher, Ukraine",
+      "orcid": "0009-0006-9829-7931"
+    }
+  ],
+  "contributors": [
+    {
+      "name": "Claude Opus 4.8 (Anthropic)",
+      "type": "Other"
+    },
+    {
+      "name": "Claude Fable 5 (Anthropic)",
+      "type": "Other"
+    }
+  ],
+  "notes": "Text: CC-BY-4.0. Code: Apache-2.0. Contributors listed above are AI models used in the work; per-artifact attribution is recorded in the git history (Co-Authored-By trailers).",
+  "publication_date": "2026-08-27"
+}

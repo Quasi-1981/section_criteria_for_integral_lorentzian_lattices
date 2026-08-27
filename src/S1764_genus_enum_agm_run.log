@@ -1,0 +1,51 @@
+﻿====================================================================================================
+Genera of rank 4, signature (3,1), |det| in {1,2,4}
+sign walking after Allcock-Gal-Mark, arXiv:1511.04614, Lemma 6.1;
+oddity fusion after Lemma 5.2.  Every walk used below is certified by its licensing case.
+====================================================================================================
+
+|det| = 1 :  1 putative systems  ->  1 distinct symbols  ->  1 genera
+     1^{+4}_I(t=2)                              disc = trivial        parity = odd
+
+|det| = 2 :  4 putative systems  ->  2 distinct symbols  ->  1 genera
+     1^{+3}_I(t=1) · 2^{+1}_I(t=1)              disc = Z/2            parity = odd
+
+|det| = 4 :  12 putative systems  ->  10 distinct symbols  ->  5 genera
+     1^{+2}_I(t=0) · 2^{+2}_I(t=2)              disc = Z/2 x Z/2      parity = odd
+     1^{+2}_I(t=2) · 2^{+2}_II(t=0)             disc = Z/2 x Z/2      parity = odd
+     1^{+2}_II(t=0) · 2^{+2}_I(t=2)             disc = Z/2 x Z/2      parity = even
+     1^{+3}_I(t=1) · 4^{+1}_I(t=1)              disc = Z/4            parity = odd
+     1^{+3}_I(t=3) · 4^{+1}_I(t=7)              disc = Z/4            parity = odd
+
+----------------------------------------------------------------------------------------------------
+TOTAL GENERA: 7
+
+== LICENCE LEDGER — every sign walk used in the merging, with the case that permits it ==
+   |det|=2  1^{+3}_I(t=1) · 2^{+1}_I(t=1)      -> 1^{-3}_I(t=5) · 2^{-1}_I(t=1)        Lemma 6.1 (2) adjacent scales 1,2 both type I, compartment dim 4 > 2
+   |det|=2  1^{+3}_I(t=3) · 2^{+1}_I(t=7)      -> 1^{-3}_I(t=7) · 2^{-1}_I(t=7)        Lemma 6.1 (2) adjacent scales 1,2 both type I, compartment dim 4 > 2
+   |det|=2  1^{-3}_I(t=1) · 2^{-1}_I(t=5)      -> 1^{+3}_I(t=5) · 2^{+1}_I(t=5)        Lemma 6.1 (2) adjacent scales 1,2 both type I, compartment dim 4 > 2
+   |det|=2  1^{-3}_I(t=3) · 2^{-1}_I(t=3)      -> 1^{+3}_I(t=7) · 2^{+1}_I(t=3)        Lemma 6.1 (2) adjacent scales 1,2 both type I, compartment dim 4 > 2
+   |det|=4  1^{+2}_I(t=0) · 2^{+2}_I(t=2)      -> 1^{-2}_I(t=4) · 2^{-2}_I(t=2)        Lemma 6.1 (2) adjacent scales 1,2 both type I, compartment dim 4 > 2
+   |det|=4  1^{+2}_I(t=2) · 2^{+2}_I(t=0)      -> 1^{-2}_I(t=6) · 2^{-2}_I(t=0)        Lemma 6.1 (2) adjacent scales 1,2 both type I, compartment dim 4 > 2
+   |det|=4  1^{-2}_I(t=2) · 2^{-2}_I(t=4)      -> 1^{+2}_I(t=6) · 2^{+2}_I(t=4)        Lemma 6.1 (2) adjacent scales 1,2 both type I, compartment dim 4 > 2
+   |det|=4  1^{-2}_I(t=4) · 2^{-2}_I(t=2)      -> 1^{+2}_I(t=0) · 2^{+2}_I(t=2)        Lemma 6.1 (2) adjacent scales 1,2 both type I, compartment dim 4 > 2
+   |det|=4  1^{+2}_I(t=2) · 2^{+2}_II(t=0)     -> 1^{-2}_I(t=6) · 2^{-2}_II(t=0)       Lemma 6.1 (1) adjacent scales 1,2 of different types I/II
+   |det|=4  1^{-2}_I(t=6) · 2^{-2}_II(t=0)     -> 1^{+2}_I(t=2) · 2^{+2}_II(t=0)       Lemma 6.1 (1) adjacent scales 1,2 of different types I/II
+   |det|=4  1^{+2}_II(t=0) · 2^{+2}_I(t=2)     -> 1^{-2}_II(t=0) · 2^{-2}_I(t=6)       Lemma 6.1 (1) adjacent scales 1,2 of different types II/I
+   |det|=4  1^{-2}_II(t=0) · 2^{-2}_I(t=6)     -> 1^{+2}_II(t=0) · 2^{+2}_I(t=2)       Lemma 6.1 (1) adjacent scales 1,2 of different types II/I
+   |det|=4  1^{+3}_I(t=1) · 4^{+1}_I(t=1)      -> 1^{-3}_I(t=5) · 4^{-1}_I(t=5)        Lemma 6.1 (3) scales 1,4 differ by 4, both type I, term at 2 trivial
+   |det|=4  1^{+3}_I(t=3) · 4^{+1}_I(t=7)      -> 1^{-3}_I(t=7) · 4^{-1}_I(t=3)        Lemma 6.1 (3) scales 1,4 differ by 4, both type I, term at 2 trivial
+   |det|=4  1^{-3}_I(t=5) · 4^{-1}_I(t=5)      -> 1^{+3}_I(t=1) · 4^{+1}_I(t=1)        Lemma 6.1 (3) scales 1,4 differ by 4, both type I, term at 2 trivial
+   |det|=4  1^{-3}_I(t=7) · 4^{-1}_I(t=3)      -> 1^{+3}_I(t=3) · 4^{+1}_I(t=7)        Lemma 6.1 (3) scales 1,4 differ by 4, both type I, term at 2 trivial
+   total licensed walks used: 16
+   No walk outside these cases was performed; an unconditional train walk is
+   strictly more permissive than Lemma 6.1 and could merge inequivalent symbols.
+
+== CONTROL (negative) — the count is sensitive to the rule ==
+   unconditional train walk, legal images only : 8 genera
+   AGM Lemma 6.1 walk, legal images only       : 7 genera
+   the instrument can return a different number, so the AGM count is not a
+   tautology of the run.
+   [OK] CONTROL
+
+[dump] ./S1764_genus_enum_agm_dump.jsonl

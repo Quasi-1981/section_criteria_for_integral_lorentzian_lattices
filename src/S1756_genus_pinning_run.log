@@ -1,0 +1,75 @@
+﻿================================================================================================
+S1756 - does (signature, b-bar, parity) determine the GENUS?  rank 4, sig(3,1), |det| in {1,2,4}
+================================================================================================
+
+-- named lattices: invariants --
+   name                         |det|    parity  disc (elem.div.)       hasse2   2-scales
+   I_{3,1}=diag(1,1,1,-1)       1        odd     ()                     1        ((0, 4),)
+   diag(1,1,1,-2)               2        odd     (2,)                   1        ((0, 3), (1, 1))
+   diag(1,1,1,-4)               4        odd     (4,)                   1        ((0, 3), (2, 1))
+   diag(1,1,2,-2)               4        odd     (2, 2)                 1        ((0, 2), (1, 2))
+   A3(+)<-1>                    4        odd     (4,)                   1        ((0, 3), (2, 1))
+   A1^2(+)U                     4        even    (2, 2)                 1        ((0, 2), (1, 2))
+   I_{3,1}=diag(1,1,1,-1) ~copy1 1        odd     ()                     1        ((0, 4),)
+   I_{3,1}=diag(1,1,1,-1) ~copy2 1        odd     ()                     1        ((0, 4),)
+   I_{3,1}=diag(1,1,1,-1) ~copy3 1        odd     ()                     1        ((0, 4),)
+   diag(1,1,1,-2) ~copy1        2        odd     (2,)                   1        ((0, 3), (1, 1))
+   diag(1,1,1,-2) ~copy2        2        odd     (2,)                   1        ((0, 3), (1, 1))
+   diag(1,1,1,-2) ~copy3        2        odd     (2,)                   1        ((0, 3), (1, 1))
+   diag(1,1,1,-4) ~copy1        4        odd     (4,)                   1        ((0, 3), (2, 1))
+   diag(1,1,1,-4) ~copy2        4        odd     (4,)                   1        ((0, 3), (2, 1))
+   diag(1,1,1,-4) ~copy3        4        odd     (4,)                   1        ((0, 3), (2, 1))
+   diag(1,1,2,-2) ~copy1        4        odd     (2, 2)                 1        ((0, 2), (1, 2))
+   diag(1,1,2,-2) ~copy2        4        odd     (2, 2)                 1        ((0, 2), (1, 2))
+   diag(1,1,2,-2) ~copy3        4        odd     (2, 2)                 1        ((0, 2), (1, 2))
+   A3(+)<-1> ~copy1             4        odd     (4,)                   1        ((0, 3), (2, 1))
+   A3(+)<-1> ~copy2             4        odd     (4,)                   1        ((0, 3), (2, 1))
+   A3(+)<-1> ~copy3             4        odd     (4,)                   1        ((0, 3), (2, 1))
+   A1^2(+)U ~copy1              4        even    (2, 2)                 1        ((0, 2), (1, 2))
+   A1^2(+)U ~copy2              4        even    (2, 2)                 1        ((0, 2), (1, 2))
+   A1^2(+)U ~copy3              4        even    (2, 2)                 1        ((0, 2), (1, 2))
+
+-- CONTROL K-POS: GL4(Z) copies must carry IDENTICAL genus invariants --
+   [OK] all copies match their base
+
+-- CONTROL K-NEG (critical): the KNOWN parity pair on the 4th ambient --
+   b-bar explicitly isometric (exhaustive search): True
+   same bucket WITH parity in key   : False   (expected False)
+   same bucket WITHOUT parity in key: True   (expected True)
+   [OK] K-NEG
+
+-- CONTROL K-STRUCT: |disc| == |det|, and Z/4 vs (Z/2)^2 separate at |det|=4 --
+   |disc|==|det| everywhere: True ;  Z/4 (4,)  vs  (Z/2)^2 (2, 2)  -> distinct: True
+   [OK] K-STRUCT
+
+-- CONTROL K-CAL: Hilbert symbol (.,.)_2 against known values --
+   known values: 9/9 ; hasse_2(diag(3,3,3,-3)) = -1 (must be -1, proves it CAN fire)
+   [OK] K-CAL
+
+-- FAMILY ENUMERATION (B=2) --
+   integral 4x4, |g_ij| <= 2, sig (3,1), |det| in {1,2,4}: 65667 lattices
+   buckets by triple (sig, disc profile, parity): 7
+
+-- HUNT: inside each bucket, do all lattices share the genus invariants? --
+   candidate counterexamples (same triple, different genus invariants): 0
+
+-- CONTROL K-POWER (added after the first run caught blindness) --
+   'no counterexample' is worthless unless the genus invariants CAN differ inside a bucket.
+   distinct hasse_2 values over the whole family : [1]
+   2-adic scale profile is a FUNCTION of the disc group (adds nothing): True
+   buckets in which any invariant takes >1 value  : 0
+   [XX] K-POWER - instrument CANNOT separate inside a bucket
+
+-- VERDICT --
+   controls (K-POS, K-NEG, K-STRUCT, K-CAL): ALL OK
+   VERDICT: MEASUREMENT VOID - THE INSTRUMENT IS BLIND.
+            Every genus invariant available to this probe is already a function of
+            (disc group, parity, signature) on this family: hasse_2 is CONSTANT and the
+            2-adic scale profile is determined by the elementary divisors.
+            => a counterexample could exist and this probe could never see it.
+            '0 counterexamples' here is VACUOUS, not evidence. The hunt DID NOT HAPPEN.
+            To move the question one needs an invariant strictly finer than the disc
+            group: the full 2-adic canonical symbol (oddity fusion / sign walking),
+            parked at S1736, or SPLAG (29)-(35) / Table 15.4 transcribed from source.
+
+[dump] child-3.1/src\S1756_genus_pinning_dump.jsonl

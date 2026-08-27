@@ -1,0 +1,26 @@
+{"kind": "lattice", "name": "I_{3,1}=diag(1,1,1,-1)", "gram": [[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, -1]], "even": false, "elementary_divisors": [], "hasse_2": 1, "scales": [[0, 4]]}
+{"kind": "lattice", "name": "diag(1,1,1,-2)", "gram": [[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, -2]], "even": false, "elementary_divisors": [2], "hasse_2": 1, "scales": [[0, 3], [1, 1]]}
+{"kind": "lattice", "name": "diag(1,1,1,-4)", "gram": [[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, -4]], "even": false, "elementary_divisors": [4], "hasse_2": 1, "scales": [[0, 3], [2, 1]]}
+{"kind": "lattice", "name": "diag(1,1,2,-2)", "gram": [[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 2, 0], [0, 0, 0, -2]], "even": false, "elementary_divisors": [2, 2], "hasse_2": 1, "scales": [[0, 2], [1, 2]]}
+{"kind": "lattice", "name": "A3(+)<-1>", "gram": [[2, -1, 0, 0], [-1, 2, -1, 0], [0, -1, 2, 0], [0, 0, 0, -1]], "even": false, "elementary_divisors": [4], "hasse_2": 1, "scales": [[0, 3], [2, 1]]}
+{"kind": "lattice", "name": "A1^2(+)U", "gram": [[2, 0, 0, 0], [0, 2, 0, 0], [0, 0, 0, 1], [0, 0, 1, 0]], "even": true, "elementary_divisors": [2, 2], "hasse_2": 1, "scales": [[0, 2], [1, 2]]}
+{"kind": "lattice", "name": "I_{3,1}=diag(1,1,1,-1) ~copy1", "gram": [[1, 1, 0, 0], [1, 2, 0, 0], [0, 0, 1, 0], [0, 0, 0, -1]], "even": false, "elementary_divisors": [], "hasse_2": 1, "scales": [[0, 4]]}
+{"kind": "lattice", "name": "I_{3,1}=diag(1,1,1,-1) ~copy2", "gram": [[2, 0, 1, 0], [0, 0, 0, -1], [1, 0, 1, 0], [0, -1, 0, -1]], "even": false, "elementary_divisors": [], "hasse_2": 1, "scales": [[0, 4]]}
+{"kind": "lattice", "name": "I_{3,1}=diag(1,1,1,-1) ~copy3", "gram": [[1, 0, 1, 1], [0, 1, 0, 1], [1, 0, 2, 1], [1, 1, 1, 1]], "even": false, "elementary_divisors": [], "hasse_2": 1, "scales": [[0, 4]]}
+{"kind": "lattice", "name": "diag(1,1,1,-2) ~copy1", "gram": [[1, 1, 0, 0], [1, 2, 0, 0], [0, 0, 1, 0], [0, 0, 0, -2]], "even": false, "elementary_divisors": [2], "hasse_2": 1, "scales": [[0, 3], [1, 1]]}
+{"kind": "lattice", "name": "diag(1,1,1,-2) ~copy2", "gram": [[2, 0, 1, 0], [0, -1, 0, -2], [1, 0, 1, 0], [0, -2, 0, -2]], "even": false, "elementary_divisors": [2], "hasse_2": 1, "scales": [[0, 3], [1, 1]]}
+{"kind": "lattice", "name": "diag(1,1,1,-2) ~copy3", "gram": [[1, 0, 1, 1], [0, 1, 0, 1], [1, 0, 2, 1], [1, 1, 1, 0]], "even": false, "elementary_divisors": [2], "hasse_2": 1, "scales": [[0, 3], [1, 1]]}
+{"kind": "lattice", "name": "diag(1,1,1,-4) ~copy1", "gram": [[1, 1, 0, 0], [1, 2, 0, 0], [0, 0, 1, 0], [0, 0, 0, -4]], "even": false, "elementary_divisors": [4], "hasse_2": 1, "scales": [[0, 3], [2, 1]]}
+{"kind": "lattice", "name": "diag(1,1,1,-4) ~copy2", "gram": [[2, 0, 1, 0], [0, -3, 0, -4], [1, 0, 1, 0], [0, -4, 0, -4]], "even": false, "elementary_divisors": [4], "hasse_2": 1, "scales": [[0, 3], [2, 1]]}
+{"kind": "lattice", "name": "diag(1,1,1,-4) ~copy3", "gram": [[1, 0, 1, 1], [0, 1, 0, 1], [1, 0, 2, 1], [1, 1, 1, -2]], "even": false, "elementary_divisors": [4], "hasse_2": 1, "scales": [[0, 3], [2, 1]]}
+{"kind": "lattice", "name": "diag(1,1,2,-2) ~copy1", "gram": [[1, 1, 0, 0], [1, 2, 0, 0], [0, 0, 2, 0], [0, 0, 0, -2]], "even": false, "elementary_divisors": [2, 2], "hasse_2": 1, "scales": [[0, 2], [1, 2]]}
+{"kind": "lattice", "name": "diag(1,1,2,-2) ~copy2", "gram": [[3, 0, 2, 0], [0, -1, 0, -2], [2, 0, 2, 0], [0, -2, 0, -2]], "even": false, "elementary_divisors": [2, 2], "hasse_2": 1, "scales": [[0, 2], [1, 2]]}
+{"kind": "lattice", "name": "diag(1,1,2,-2) ~copy3", "gram": [[1, 0, 1, 1], [0, 1, 0, 1], [1, 0, 3, 1], [1, 1, 1, 0]], "even": false, "elementary_divisors": [2, 2], "hasse_2": 1, "scales": [[0, 2], [1, 2]]}
+{"kind": "lattice", "name": "A3(+)<-1> ~copy1", "gram": [[2, 1, 0, 0], [1, 2, -1, 0], [0, -1, 2, 0], [0, 0, 0, -1]], "even": false, "elementary_divisors": [4], "hasse_2": 1, "scales": [[0, 3], [2, 1]]}
+{"kind": "lattice", "name": "A3(+)<-1> ~copy2", "gram": [[4, -2, 2, 0], [-2, 1, -1, -1], [2, -1, 2, 0], [0, -1, 0, -1]], "even": false, "elementary_divisors": [4], "hasse_2": 1, "scales": [[0, 3], [2, 1]]}
+{"kind": "lattice", "name": "A3(+)<-1> ~copy3", "gram": [[2, -1, 2, 1], [-1, 2, -2, 1], [2, -2, 4, 0], [1, 1, 0, 1]], "even": false, "elementary_divisors": [4], "hasse_2": 1, "scales": [[0, 3], [2, 1]]}
+{"kind": "lattice", "name": "A1^2(+)U ~copy1", "gram": [[2, 2, 0, 0], [2, 4, 0, 0], [0, 0, 0, 1], [0, 0, 1, 0]], "even": true, "elementary_divisors": [2, 2], "hasse_2": 1, "scales": [[0, 2], [1, 2]]}
+{"kind": "lattice", "name": "A1^2(+)U ~copy2", "gram": [[2, 1, 0, 1], [1, 2, 1, 0], [0, 1, 0, 1], [1, 0, 1, 0]], "even": true, "elementary_divisors": [2, 2], "hasse_2": 1, "scales": [[0, 2], [1, 2]]}
+{"kind": "lattice", "name": "A1^2(+)U ~copy3", "gram": [[2, 0, 2, 2], [0, 2, 0, 2], [2, 0, 2, 3], [2, 2, 3, 4]], "even": true, "elementary_divisors": [2, 2], "hasse_2": 1, "scales": [[0, 2], [1, 2]]}
+{"kind": "controls", "k_pos": true, "k_neg": true, "k_struct": true}
+{"kind": "verdict", "verdict": "VOID-BLIND", "B": 2, "family_size": 65691, "buckets": 7, "counterexamples": 0}

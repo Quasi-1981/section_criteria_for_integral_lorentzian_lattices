@@ -1,0 +1,24 @@
+{"kind": "genus", "det": -1, "symbol": "1^{+4}_I(t=2)", "disc": "trivial", "parity": "odd"}
+{"kind": "genus", "det": -2, "symbol": "1^{+3}_I(t=1) \u00b7 2^{+1}_I(t=1)", "disc": "Z/2", "parity": "odd"}
+{"kind": "genus", "det": -4, "symbol": "1^{+2}_I(t=0) \u00b7 2^{+2}_I(t=2)", "disc": "Z/2 x Z/2", "parity": "odd"}
+{"kind": "genus", "det": -4, "symbol": "1^{+2}_I(t=2) \u00b7 2^{+2}_II(t=0)", "disc": "Z/2 x Z/2", "parity": "odd"}
+{"kind": "genus", "det": -4, "symbol": "1^{+2}_II(t=0) \u00b7 2^{+2}_I(t=2)", "disc": "Z/2 x Z/2", "parity": "even"}
+{"kind": "genus", "det": -4, "symbol": "1^{+3}_I(t=1) \u00b7 4^{+1}_I(t=1)", "disc": "Z/4", "parity": "odd"}
+{"kind": "genus", "det": -4, "symbol": "1^{+3}_I(t=3) \u00b7 4^{+1}_I(t=7)", "disc": "Z/4", "parity": "odd"}
+{"kind": "walk", "det": -2, "from": "1^{+3}_I(t=1) \u00b7 2^{+1}_I(t=1)", "to": "1^{-3}_I(t=5) \u00b7 2^{-1}_I(t=1)", "licence": "Lemma 6.1 (2) adjacent scales 1,2 both type I, compartment dim 4 > 2"}
+{"kind": "walk", "det": -2, "from": "1^{+3}_I(t=3) \u00b7 2^{+1}_I(t=7)", "to": "1^{-3}_I(t=7) \u00b7 2^{-1}_I(t=7)", "licence": "Lemma 6.1 (2) adjacent scales 1,2 both type I, compartment dim 4 > 2"}
+{"kind": "walk", "det": -2, "from": "1^{-3}_I(t=1) \u00b7 2^{-1}_I(t=5)", "to": "1^{+3}_I(t=5) \u00b7 2^{+1}_I(t=5)", "licence": "Lemma 6.1 (2) adjacent scales 1,2 both type I, compartment dim 4 > 2"}
+{"kind": "walk", "det": -2, "from": "1^{-3}_I(t=3) \u00b7 2^{-1}_I(t=3)", "to": "1^{+3}_I(t=7) \u00b7 2^{+1}_I(t=3)", "licence": "Lemma 6.1 (2) adjacent scales 1,2 both type I, compartment dim 4 > 2"}
+{"kind": "walk", "det": -4, "from": "1^{+2}_I(t=0) \u00b7 2^{+2}_I(t=2)", "to": "1^{-2}_I(t=4) \u00b7 2^{-2}_I(t=2)", "licence": "Lemma 6.1 (2) adjacent scales 1,2 both type I, compartment dim 4 > 2"}
+{"kind": "walk", "det": -4, "from": "1^{+2}_I(t=2) \u00b7 2^{+2}_I(t=0)", "to": "1^{-2}_I(t=6) \u00b7 2^{-2}_I(t=0)", "licence": "Lemma 6.1 (2) adjacent scales 1,2 both type I, compartment dim 4 > 2"}
+{"kind": "walk", "det": -4, "from": "1^{-2}_I(t=2) \u00b7 2^{-2}_I(t=4)", "to": "1^{+2}_I(t=6) \u00b7 2^{+2}_I(t=4)", "licence": "Lemma 6.1 (2) adjacent scales 1,2 both type I, compartment dim 4 > 2"}
+{"kind": "walk", "det": -4, "from": "1^{-2}_I(t=4) \u00b7 2^{-2}_I(t=2)", "to": "1^{+2}_I(t=0) \u00b7 2^{+2}_I(t=2)", "licence": "Lemma 6.1 (2) adjacent scales 1,2 both type I, compartment dim 4 > 2"}
+{"kind": "walk", "det": -4, "from": "1^{+2}_I(t=2) \u00b7 2^{+2}_II(t=0)", "to": "1^{-2}_I(t=6) \u00b7 2^{-2}_II(t=0)", "licence": "Lemma 6.1 (1) adjacent scales 1,2 of different types I/II"}
+{"kind": "walk", "det": -4, "from": "1^{-2}_I(t=6) \u00b7 2^{-2}_II(t=0)", "to": "1^{+2}_I(t=2) \u00b7 2^{+2}_II(t=0)", "licence": "Lemma 6.1 (1) adjacent scales 1,2 of different types I/II"}
+{"kind": "walk", "det": -4, "from": "1^{+2}_II(t=0) \u00b7 2^{+2}_I(t=2)", "to": "1^{-2}_II(t=0) \u00b7 2^{-2}_I(t=6)", "licence": "Lemma 6.1 (1) adjacent scales 1,2 of different types II/I"}
+{"kind": "walk", "det": -4, "from": "1^{-2}_II(t=0) \u00b7 2^{-2}_I(t=6)", "to": "1^{+2}_II(t=0) \u00b7 2^{+2}_I(t=2)", "licence": "Lemma 6.1 (1) adjacent scales 1,2 of different types II/I"}
+{"kind": "walk", "det": -4, "from": "1^{+3}_I(t=1) \u00b7 4^{+1}_I(t=1)", "to": "1^{-3}_I(t=5) \u00b7 4^{-1}_I(t=5)", "licence": "Lemma 6.1 (3) scales 1,4 differ by 4, both type I, term at 2 trivial"}
+{"kind": "walk", "det": -4, "from": "1^{+3}_I(t=3) \u00b7 4^{+1}_I(t=7)", "to": "1^{-3}_I(t=7) \u00b7 4^{-1}_I(t=3)", "licence": "Lemma 6.1 (3) scales 1,4 differ by 4, both type I, term at 2 trivial"}
+{"kind": "walk", "det": -4, "from": "1^{-3}_I(t=5) \u00b7 4^{-1}_I(t=5)", "to": "1^{+3}_I(t=1) \u00b7 4^{+1}_I(t=1)", "licence": "Lemma 6.1 (3) scales 1,4 differ by 4, both type I, term at 2 trivial"}
+{"kind": "walk", "det": -4, "from": "1^{-3}_I(t=7) \u00b7 4^{-1}_I(t=3)", "to": "1^{+3}_I(t=3) \u00b7 4^{+1}_I(t=7)", "licence": "Lemma 6.1 (3) scales 1,4 differ by 4, both type I, term at 2 trivial"}
+{"kind": "verdict", "genera": 7, "naive_control": 8, "control_ok": true, "verdict": "OK"}
